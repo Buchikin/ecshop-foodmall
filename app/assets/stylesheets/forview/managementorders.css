@@ -1,0 +1,50 @@
+.manage-ordered-info{
+  display: flex;
+  justify-content: flex-end;
+  color: #51456A;
+  margin-bottom: 5px;
+}
+.manage-ordered-info-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-left: 1px solid gray;
+  padding:0 10px 0 10px;
+
+}
+
+.manage-ordered-day{
+  font-size: 15px;
+}
+
+.manage-ordered-count{
+  font-size: 15px;
+}
+
+.manage-ordered-price{
+  font-size: 15px;
+}
+.manage-ordered-info-right{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-left: 1px solid gray;
+  padding:0 10px;
+}
+.order-user-info{
+  margin: 0 15px;
+}
+.order-user-name{
+  font-size: 15px;
+}
+.order-user-zip{
+  font-size: 15px;
+}
+.order-user-address{
+  font-size: 15px;
+}
+
+.order-user-info-title{
+  border-bottom: 1px solid gray;
+}

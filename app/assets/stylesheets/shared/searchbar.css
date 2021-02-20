@@ -1,0 +1,26 @@
+.searchbar{
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+.search-form{
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.search-input{
+  width: 50vw;
+  height: 30px;
+  margin-left: 90px;
+}
+
+.search-btn{
+  width: 10vw;
+  height: 50px;
+  margin-left: 10px;
+  background-color: #E56758;
+  color: #fff;
+}

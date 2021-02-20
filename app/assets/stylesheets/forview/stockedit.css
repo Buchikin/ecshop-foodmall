@@ -1,0 +1,26 @@
+.stock-edit{
+  height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #51456A;
+  margin-bottom: 20px;
+}
+
+.now-stock{
+  line-height: 60px;
+  font-size: 20px;
+
+}
+
+.new-stock{
+  line-height: 60px;
+  font-size: 20px;
+}
+
+.input-stock-edit{
+  height: 50px;
+  width: 80px;
+  font-size: 30px;
+  margin:0 5pt
+}
