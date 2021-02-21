@@ -50,7 +50,7 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:store_id, :store_name, store_attributes: [:category_id, :zip_code, :address, :phone_number, :url, :information, :responsible, :responsible_kana, :responsible_phone ] ])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:store_id, :store_name, store_attributes: [:category_id, :image, :zip_code, :address, :phone_number, :url, :information, :responsible, :responsible_kana, :responsible_phone ] ])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
