@@ -6,7 +6,7 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
 
   def new
     @seller = Seller.new
-    @store = @store.build_profile
+    @store = @seller.build_store
   end
 
 
