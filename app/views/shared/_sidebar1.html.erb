@@ -10,7 +10,7 @@
     <div class="side-charge">
       残高の追加はこちらから→<%= link_to 'チャージ', "#", class: "side-charge-button" %>
     </div>
-    <%= link_to 'ログアウト', "#", class: "side-logout-button" %>
+    <%= link_to 'ログアウト', destroy_user_session_path, class: "side-logout-button" ,method: :delete%>
   </div>
 
   <ul class="side-user-lists">
