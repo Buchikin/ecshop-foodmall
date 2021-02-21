@@ -1,6 +1,6 @@
 <%= render "shared/header4" %>
 
-<%= form_with url: "#", class: 'registration-main', local: true do |f| %>
+<%= form_with model: @seller ,url: seller_registration_path, class: 'registration-main', local: true do |f| %>
 
 <div class='form-wrap'>
   <div class='form-header'>
@@ -9,14 +9,14 @@
     </h1>
   </div>
 
-  <%#= render 'shared/error_messages', model: f.object %>
+  <%= render 'shared/error_messages', model: f.object %>
 
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">販売店ID</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :hoge, class:"input-default", placeholder:"例) Food1234", maxlength:"40" %>
+    <%= f.text_area :store_id, class:"input-default", placeholder:"例) Food1234", maxlength:"40" %>
     <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
   </div>
   <div class="form-group">
@@ -50,8 +50,10 @@
       <label class="form-text">店舗名</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_field :zip, class:"input-default", placeholder: "FOOD MALL 横浜店", maxlength:"8" %>
+    <%= f.text_field :store_name, class:"input-default", placeholder: "FOOD MALL 横浜店", maxlength:"8" %>
   </div>
+
+  <%= f.fields_for :store do |f| %>
 
   <div class="form-group">
     <div class='form-text-wrap'>
@@ -68,7 +70,7 @@
       <label class="form-text">カテゴリー</label>
       <span class="indispensable">必須</span>
     </div>
-    <%#= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+    <%= f.collection_select(:category_id, Shopcategory.all, :id, :name, {}, {class:"select-box", id:"shopcategory"}) %>
   </div>
 
   <div class="form-group">
@@ -76,7 +78,7 @@
       <label class="form-text">店舗情報</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :zip, class:"input-seller-info", placeholder: "例) いろんなシーンにあったメニューをご用意！詳細は、各メニューページをご覧ください！普段味わえない感動体験をあなたにお届けします。" %>
+    <%= f.text_area :information, class:"input-seller-info", placeholder: "例) いろんなシーンにあったメニューをご用意！詳細は、各メニューページをご覧ください！普段味わえない感動体験をあなたにお届けします。" %>
   </div>
 
   <div class="form-group">
@@ -84,7 +86,7 @@
       <label class="form-text">郵便番号</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_field :zip, class:"input-default", placeholder:"例）123-4567", maxlength:"8" %>
+    <%= f.text_field :zip_code, class:"input-default", placeholder:"例）123-4567", maxlength:"8" %>
   </div>
 
   <div class="form-group">
@@ -92,7 +94,7 @@
       <label class="form-text">店舗住所</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_field :city, class:"input-default", placeholder:"例）神奈川県横浜市緑区0-0"%>
+    <%= f.text_field :address, class:"input-default", placeholder:"例）神奈川県横浜市緑区0-0"%>
   </div>
 
   <div class="form-group">
@@ -100,14 +102,14 @@
       <label class="form-text">店舗電話番号</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_field :phone_num, class:"input-default", placeholder:"例）09012345678",maxlength:"11"%>
+    <%= f.text_field :phone_number, class:"input-default", placeholder:"例）09012345678",maxlength:"11"%>
   </div>
 
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">店舗公式URL</label>
     </div>
-    <%= f.text_field :phone_num, class:"input-default", placeholder:"例）https://www.〇〇〇〇.co.jp/"%>
+    <%= f.text_field :url, class:"input-default", placeholder:"例）https://www.〇〇〇〇.co.jp/"%>
   </div>
 
   <div class="form-group">
@@ -115,7 +117,7 @@
       <label class="form-text">店舗責任者のお名前(全角)</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :last_name, class:"input-default", placeholder:"例) 山田太郎" %>
+    <%= f.text_area :responsible, class:"input-default", placeholder:"例) 山田太郎" %>
   </div>
 
   <div class="form-group">
@@ -123,7 +125,7 @@
       <label class="form-text">店舗責任者のお名前カナ(全角)</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :last_name_kana, class:"input-default", placeholder:"例) ヤマダタロウ" %>
+    <%= f.text_area :responsible_kana, class:"input-default", placeholder:"例) ヤマダタロウ" %>
   </div>
 
   <div class="form-group">
@@ -131,10 +133,10 @@
       <label class="form-text">店舗責任者の電話番号</label>
       <span class="indispensable">必須</span>
     </div>
-    <%= f.text_area :last_name_kana, class:"input-default", placeholder:"例) 09012345678" %>
+    <%= f.text_area :responsible_phone, class:"input-default", placeholder:"例) 09012345678" %>
   </div>
 
-
+  <% end %>
 
   <br>
   <div class='shipping-address-form'>
