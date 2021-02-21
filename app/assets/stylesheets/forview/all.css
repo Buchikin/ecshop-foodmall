@@ -1,0 +1,25 @@
+.body-include-sidebar{
+  display: flex;
+}
+
+.main-body{
+  width: calc(100vw - 250px);
+  background-color: #f8f7f5;
+}
+
+.main-body-body{
+  margin: 30px;
+}
+
+
+.main-body-title{
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.error-alert{
+  color: red;
+  border-bottom: 1px solid gray;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,8 @@
+.manage-room-link {
+  margin-bottom: 30px;
+  text-decoration: none;
+  color: #51456A;
+  border-left: 1px solid gray;
+  padding-left: 10px;
+  font-size: 14px;
+}

@@ -1,0 +1,36 @@
+<div class="sidebar1">
+  <% if user_signed_in? %>
+  <div class="side-user-info">
+    <div class="side-user-name">
+      ようこそ <%= current_user.nickname %> さん
+    </div>
+    <div class="side-user-charge">
+      残高〇〇〇〇〇円
+    </div>
+    <div class="side-charge">
+      残高の追加はこちらから→<%= link_to 'チャージ', "#", class: "side-charge-button" %>
+    </div>
+    <%= link_to 'ログアウト', destroy_user_session_path, class: "side-logout-button" ,method: :delete%>
+  </div>
+
+  <ul class="side-user-lists">
+
+    <li class="side-user-list">
+      <%= link_to '>> いいねした商品', "#", class: "side-user-list-button" %>
+    </li>
+    <li class="side-user-list">
+      <%= link_to '>> お気に入り販売店', "#", class: "side-user-list-button" %>
+    </li>
+    <li class="side-user-list">
+      <%= link_to '>> 購入した商品', "#", class: "side-user-list-button" %>
+    </li>
+    <li class="side-user-list">
+      <%= link_to '>> 販売店とのメッセージ', "#", class: "side-user-list-button" %>
+    </li>
+    <li class="side-user-list">
+      <%= link_to '>> 会員情報編集', edit_user_registration_path  , class: "side-user-list-button" %>
+    </li>
+  </ul>
+  <% else %>
+  <% end %>
+</div>

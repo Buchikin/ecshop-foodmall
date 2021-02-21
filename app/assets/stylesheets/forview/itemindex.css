@@ -1,0 +1,75 @@
+
+
+.item-lists{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.item-list{
+  width: 310px;
+  padding: 20px 20px 10px 20px;
+  border: 2px solid #F0A860;
+  background-color: rgb(245, 241, 228);
+  color: #51456A;
+  margin: 10px;
+}
+
+.item-index-image{
+  width: 310px;
+  
+}
+.item-index-info{
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 2px solid gray;
+}
+.item-index-name{
+  margin-top: 2px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #51456A;
+}
+.item-index-seller{
+  text-align: right;
+  text-decoration: none;
+  color: #51456A;
+  font-size: 15px;
+}
+.item-index-3rd-row{
+  border-top: 2px solid gray;
+  margin-top: 5px;
+  padding-top: 5px;
+}
+.item-index-tags{
+  margin: auto 0 ;
+  display: flex;
+  font-size: 10px;
+}
+.item-index-tag{
+  margin: 2px;
+  background-color: rgb(219, 219, 219);
+}
+.item-index-evaluation{
+  width: 80px;
+  font-size: 10px;
+  padding-left: 8px;
+  margin: 0 0 0 auto;
+
+}
+
+.item-index-4th-row{
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid gray;
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+.item-index-stock{
+  margin:auto 0 0 20px
+}
+
+.item-index-price{
+  font-size: 22px;
+}
