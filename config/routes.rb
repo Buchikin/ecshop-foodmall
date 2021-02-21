@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :managements do
+    collection do
+      get 'top'
+    end
+  end
+
   root to: 'app#top'
 
   devise_for :users, controllers: {
