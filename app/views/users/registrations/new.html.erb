@@ -1,6 +1,6 @@
 <%= render "shared/header2" %>
 
-<%= form_with url: "#", class: 'registration-main', local: true do |f| %>
+<%= form_with url: "user_registration_path", class: 'registration-main', local: true do |f| %>
 
 <div class='form-wrap'>
   <div class='form-header'>
@@ -50,6 +50,9 @@
       安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
     </p>
   </div>
+
+  <%= f.fields_for :profile do |f| %>
+
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">お名前(全角)</label>
@@ -113,6 +116,7 @@
   <br>
   <p class='info-text-down'>※ お名前,生年月日は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
 
+  <% end %>
 
 
   <div class="form-group">
@@ -127,7 +131,6 @@
   </div>
   <p class='register-info'>本人情報の登録について</p>
 </div>
-
 
 
 <% end %>
