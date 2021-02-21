@@ -17,3 +17,9 @@
   margin-bottom: 20px;
 }
 
+.error-alert{
+  color: red;
+  border-bottom: 1px solid gray;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
