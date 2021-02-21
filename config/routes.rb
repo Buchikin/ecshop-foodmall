@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :items
+  
   resources :app do
     collection do
       get 'top'
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'app#top'
-  
+
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
