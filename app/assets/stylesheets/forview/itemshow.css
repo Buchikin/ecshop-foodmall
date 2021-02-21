@@ -1,0 +1,157 @@
+.item-show-up{
+  display: flex;
+  padding: 20px 20px 10px 20px;
+  border: 2px solid #F0A860;
+  background-color: rgb(245, 241, 228);
+  color: #51456A;
+  margin-bottom: 20px;
+}
+
+.item-show-image{
+  width: 30vw;
+  margin-right: 10px;
+}
+
+.item-show-info{
+  margin:0 10px;
+}
+
+.item-show-name{
+  font-size: 25px;
+  padding-bottom: 8px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid gray;
+}
+
+.item-show-row2{
+  display: flex;
+  justify-content: space-between;
+}
+
+.item-show-tags{
+  display: flex;
+}
+
+.item-show-tag{
+  margin: 0 2px auto 2px;
+  font-size: 12px;
+  background-color: rgb(219, 219, 219);
+}
+
+.item-show-seller{
+  text-decoration: none;
+  color: #51456A;
+  font-size: 18px;
+  padding-bottom: 8px;
+  margin-bottom: 5px;
+}
+
+.item-show-text{
+  margin-top: 10px;
+  min-height: 170px;
+
+}
+
+.item-show-evaluation{
+  text-align: right;
+}
+
+.item-show-allergies{
+  font-size: 12px;
+}
+
+.item-show-down{
+  display: flex;
+  color: #51456A;
+  justify-content: flex-end;
+
+}
+
+table {
+  border-collapse: collapse;
+  border: solid 2px gray;
+  background-color: rgb(245, 241, 228);
+  margin-left: 10px;
+}
+
+table th, table td {
+  border: solid 1px gray;
+  padding: 5px;
+}
+
+table th {
+  width: 160px;
+}
+
+table td {
+  width: 80px;
+}
+
+.item-show-ship{
+}
+
+.item-show-ship-prefecture{
+}
+.item-show-ship-day{
+}
+.item-show-ship-type{
+}
+
+.ship-text-info{
+
+}
+
+.item-show-stock{
+  margin: auto 0 0 20px;
+}
+
+.item-show-price{
+  font-size: 25px;
+  margin: auto 0 0 20px;
+}
+
+.show-order-button{
+  border: 2px solid #51456A;
+  background-color: #E56758;
+  color: #FFF;
+  margin: auto 10px 5px 50px;
+  text-align: center;
+  text-decoration: none;
+  padding: 2px 4px;
+  font-size: 22px;
+}
+
+.item-show-review-title{
+  font-size:25px;
+  margin-bottom: 20px;
+  color:#51456A;
+}
+
+.item-show-reviews{
+}
+
+.item-show-review{
+  padding: 10px;
+  border: 2px solid #F0A860;
+  background-color: rgb(245, 241, 228);
+  color: #51456A;
+  margin-bottom: 10px;
+}
+.item-show-review-up{
+  display: flex;
+  margin: 0 10px;
+  border-bottom: 2px solid gray;
+}
+.item-show-review-name{
+  margin-top: auto;
+  margin-bottom: 4px;
+}
+.item-show-review-evaluation{
+  margin-left: 10px;
+  margin-bottom: 3px;
+  padding-left: 10px;
+  border-left: 2px solid gray;
+}
+.item-show-review-text{
+  margin: 10px;
+}

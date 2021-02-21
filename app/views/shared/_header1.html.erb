@@ -1,0 +1,26 @@
+<header class="header1">
+  <div class="logo1">
+    <%= link_to image_tag("logo1.PNG", class:"ecshop-icon1"), items_path %>
+  </div>
+  <div class="nav1">
+    <ul class="buttons">
+      <% unless user_signed_in? %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: "user-button" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "user-button" %></li>
+      <% else %>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, class: "user-button", method: :delete %></li>
+      <% end %>
+    </ul>
+    <div class="to-seller">
+      <div class="to-seller-info">
+        販売者様はこちら
+      </div>
+      <div>
+        >><%= link_to '販売者専用ページ', "#", class: "to-seller-button" %>
+      </div>
+    </div>
+  </div>
+
+
+
+</header>

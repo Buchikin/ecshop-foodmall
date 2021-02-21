@@ -1,0 +1,88 @@
+.messages {}
+
+.message {
+  padding: 10px;
+  border: 2px solid #F0A860;
+  background-color: rgb(245, 241, 228);
+  color: #51456A;
+  margin-bottom: 10px;
+}
+
+.message-up {
+  display: flex;
+  margin: 0 10px;
+  border-bottom: 2px solid gray;
+}
+
+.message-name {
+  margin-top: auto;
+  margin-bottom: 4px;
+}
+
+.message-time {
+  margin-left: 10px;
+  margin-bottom: 3px;
+  padding-left: 10px;
+  border-left: 2px solid gray;
+}
+
+.message-item-name {
+  margin: 10px;
+  text-decoration: underline 4px gray;
+}
+
+.message-text {
+  margin: 10px;
+}
+
+.message-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid gray;
+  align-items: center;
+  color: #51456A;
+}
+
+.message-form-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 10px;
+}
+
+.message-form-row2{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.message-form-text {
+  height: 80px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+  margin-bottom: 10px;
+  color: #51456A;
+}
+
+.message-form-submit {
+  width: 70px;
+  height: 40px;
+  border: 2px solid #51456A;
+  background-color: #E56758;
+  color: #fff;
+}
+
+.message-item-select {
+  height: 40px;
+  width: 300px;
+  margin: 10px 10px 0 0 ;
+  color: #51456A;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px 16px 8px;
+}

@@ -1,0 +1,82 @@
+.credit-card-form {
+  width: 100%;
+  border-bottom: 2px solid #f5f5f5;
+  margin-top: 15px;
+  padding-bottom: 30px;
+
+}
+
+.info-input-haedline {
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.available-card {
+  display: flex;
+  height: 35px;
+}
+
+.card-logo {
+  width: 40px;
+  margin: 5px 5px;
+}
+
+.input-expiration-date-wrap {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  line-height: 55px;
+}
+
+.input-expiration-date {
+  width: 50px;
+  margin-top: 5px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+  line-height: 45px;
+  text-align: center;
+}
+
+.input-charge-default{
+  width: 250px;
+  margin-top: 5px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  resize: none;
+  line-height: 45px;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.charge-form{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.charge-changes{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.charge-change{
+  width: 40%;
+}
+.charge-change-text{
+  text-align: center;
+  border-bottom: 1px solid gray;
+  margin-bottom: 5px;
+}
+.charge-change-value{
+  text-align: center;
+  font-size: 20px;
+}
+

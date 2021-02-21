@@ -1,0 +1,49 @@
+.header1{
+  width: 100vw;
+  height: 80px;
+  background-color: #F0A860;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-bottom: 3px solid #df8b82;
+  padding: 0;
+}
+
+.header2{
+  width: 100vw;
+  height: 150px;
+  background-color: #F0A860;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-bottom: 3px solid #df8b82;
+  padding: 0 0 10px 0;
+}
+
+.nav1{
+  margin: 0 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.logo1{
+  height: 70px;
+  width: 200px;
+  margin-left: 50px;
+}
+
+.logo2{
+  margin: 0 auto;
+}
+
+.ecshop-icon1{
+  margin-top: 5px;
+  height: 60px;
+}
+
+.ecshop-icon2{
+  height: 120px;
+  margin-top: 5px;
+}

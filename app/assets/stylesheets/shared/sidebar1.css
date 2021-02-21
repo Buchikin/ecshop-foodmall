@@ -1,0 +1,76 @@
+.sidebar1{
+  width: 250px;
+  background-color: #F0DBBE;
+  border-right: 3px solid #cabdac;
+}
+
+.side-user-info{
+  height: 140px;
+  width: 230px;
+  margin: 10px 10px 0 10px;
+  padding: 5px 0 13px 0;
+  border-bottom: 3px solid #cabdac;
+  color: #51456A;
+}
+
+.side-user-name{
+  margin: 10px;
+}
+
+.side-user-charge{
+  font-size: 20px;
+  text-align: right;
+  padding-bottom: 5px;
+}
+
+.side-charge{
+  font-size: 10px;
+  text-align: right;
+}
+
+.side-charge-button{
+  width: 55px;
+  font-size: 13px;
+  text-align: center;
+  margin: 3px 0 0 auto;
+  text-decoration: none;
+  background-color: #51456A;
+  border: 1px solid #FFF;
+  color: #FFF;
+  padding: 2px;
+}
+
+.side-logout-button{
+  width: 80px;
+  border: 2px solid #51456A;
+  background-color: #E56758;
+  color: #FFF;
+  margin: 10px auto;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  padding: 2px 4px;
+}
+
+.side-user-lists{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.side-user-list{
+  width: 230px;
+  height: 70px;
+  border-bottom: 3px solid #cabdac;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 2px;
+}
+
+.side-user-list-button{
+  text-decoration: none;
+  padding: 20px 0;
+  color: #51456A;
+}

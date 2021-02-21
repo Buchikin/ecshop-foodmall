@@ -1,0 +1,12 @@
+.room-link {
+  margin-bottom: 30px;
+  text-decoration: none;
+  color: #51456A;
+}
+
+.seller-item-room {
+  border-bottom: 2px solid gray;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  color: #51456A;
+}

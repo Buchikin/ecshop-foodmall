@@ -1,0 +1,33 @@
+.ordered-info{
+  display: flex;
+  justify-content: flex-end;
+  color: #51456A;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.ordered-day{
+}
+
+.ordered-count{
+  margin-left: 20px;
+}
+
+.ordered-price{
+  margin-left: 10px;
+}
+
+.button-for-review{
+  text-decoration: none;
+  color: #51456A;
+  border: 1px solid #51456A;
+  padding: 2px 3px;
+  background-color: lightgray;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.order-info-row2{
+  display: flex;
+  justify-content: flex-end;
+  color: #51456A;
+}

@@ -1,0 +1,6 @@
+<div class="searchbar">
+  <%= form_with(url: "#", local: true, method: :get, class: "search-form") do |form| %>
+  <%= form.text_field :keyword, placeholder: " 商品名 料理名 食材 など", class: "search-input" %>
+  <%= form.submit "検索する", class: "search-btn" %>
+  <% end %>
+</div>
