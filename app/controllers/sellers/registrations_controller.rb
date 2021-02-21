@@ -2,13 +2,22 @@
 
 class Sellers::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
-  # before_action :configure_account_update_params, only: [:update]
+  before_action :configure_account_update_params, only: [:update]
 
   def new
     @seller = Seller.new
     @store = @seller.build_store
   end
 
+  def edit
+    @seller = Seller.find(current_seller.id)
+  end
+
+  protected
+
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
 
 
@@ -54,14 +63,18 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
   end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [ :store_name, store_attributes: [:id, :category_id, :image, :zip_code, :address, :phone_number, :url, :information, :responsible, :responsible_kana, :responsible_phone ] ])
+  end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    top_managements_path
+  end
+
+  def after_update_path_for(_resource)
+    top_managements_path
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
