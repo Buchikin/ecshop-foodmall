@@ -15,4 +15,10 @@ Rails.application.routes.draw do
     passwords:     'users/passwords',
     registrations: 'users/registrations'
   }
+
+  devise_for :sellers, controllers: {
+    sessions:      'sellers/sessions',
+    passwords:     'sellers/passwords',
+    registrations: 'sellers/registrations'
+  }
 end
