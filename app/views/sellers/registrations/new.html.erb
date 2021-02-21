@@ -1,0 +1,163 @@
+<%= render "shared/header4" %>
+
+<%= form_with model: @seller ,url: seller_registration_path, class: 'registration-main', local: true do |f| %>
+
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      販売店新規登録
+    </h1>
+  </div>
+
+  <%= render 'shared/error_messages', model: f.object %>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">店舗ID</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :store_id, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">パスワード</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
+    <p class='info-text'>※英字と数字の両方を含めて設定してください</p>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">パスワード(確認)</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
+  </div>
+  <br>
+  <div class="form-group">
+    <p class='form-info-header'>
+      販売店情報登録
+    </p>
+    <p class='seller-form-info-text'>
+      ※店舗名,カテゴリー,住所,電話番号,公式URLはお客様に公開されます。<br> ※責任者名,責任者電話番号は公開されません。
+    </p>
+  </div>
+
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">店舗名</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :store_name, class:"input-default", placeholder: "FOOD MALL 横浜店", maxlength:"8" %>
+  </div>
+
+  <%= f.fields_for :store do |f| %>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">店舗画像</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <div class="click-upload">
+      <%= f.file_field :image, class:"seller-image" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">カテゴリー</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.collection_select(:category_id, Shopcategory.all, :id, :name, {}, {class:"select-box", id:"shopcategory"}) %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">店舗情報</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :information, class:"input-seller-info", placeholder: "例) いろんなシーンにあったメニューをご用意！詳細は、各メニューページをご覧ください！普段味わえない感動体験をあなたにお届けします。" %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">郵便番号</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :zip_code, class:"input-default", placeholder:"例）123-4567", maxlength:"8" %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">店舗住所</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :address, class:"input-default", placeholder:"例）神奈川県横浜市緑区0-0"%>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">店舗電話番号</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :phone_number, class:"input-default", placeholder:"例）09012345678",maxlength:"11"%>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">店舗公式URL</label>
+    </div>
+    <%= f.text_field :url, class:"input-default", placeholder:"例）https://www.〇〇〇〇.co.jp/"%>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">店舗責任者のお名前(全角)</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :responsible, class:"input-default", placeholder:"例) 山田太郎" %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">店舗責任者のお名前カナ(全角)</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :responsible_kana, class:"input-default", placeholder:"例) ヤマダタロウ" %>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">店舗責任者の電話番号</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :responsible_phone, class:"input-default", placeholder:"例) 09012345678" %>
+  </div>
+
+  <% end %>
+
+  <br>
+  <div class='shipping-address-form'>
+
+
+
+    <div class="form-group">
+      <p class='form-info-text'>
+        「販売店登録」のボタンを押すことにより、
+        <span class="seller-new-kiyaku">利用規約</span>に同意したものとみなします
+      </p>
+    </div>
+    <br>
+    <div class='register-btn'>
+      <%= f.submit "販売店登録" ,class:"register-red-btn" %>
+    </div>
+    <br>
+  </div>
+
+
+
+  <% end %>
+
+</div>
+<%= render "shared/footer2" %>
