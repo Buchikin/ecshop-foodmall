@@ -20,4 +20,10 @@ class Store < ApplicationRecord
   end
 
   belongs_to :seller
+
+  has_one_attached :image
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :shopcategory
+
 end
