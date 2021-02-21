@@ -1,0 +1,68 @@
+<%= render "shared/header3" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar2" %>
+
+  <div class="main-body">
+
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">販売者管理ページ</span>
+      </div>
+
+      <div class="main-body-sub-title">
+        <span style="color:#51456A">販売者情報</span>
+      </div>
+
+      <div class="seller-show-up">
+        <div class="seller-show-image">
+          <%= image_tag "seller.jpeg" ,class: "seller-show-image" %>
+        </div>
+        <div class="seller-show-info">
+          <div class="seller-show-row1">
+            <div class="seller-show-row1-left">
+              <div class="seller-show-name"><b>松屋南草津店</b></div>
+              <div class="seller-show-category">和食</div>
+            </div>
+          </div>
+          <div class="seller-show-text">
+            日本一の名店が仕上げた一品。京都産ネギと鹿児島産豚肉を使用し、香ばしい香りを実現。全国に多くのファンを持つ。２０１８年度全国ファストフード選手権大賞受賞。
+          </div>
+          <div class="seller-show-row2">
+            ・〒000-0000 滋賀県草津市野路町3丁目0-0
+          </div>
+          <div class="seller-show-row2">
+            ・Tel 090-0000-0000
+          </div>
+          <div class="seller-show-row2">
+            ・公式サイト
+            <%= link_to "https://www.matsuyafoods.co.jp/","https://www.matsuyafoods.co.jp/",class: "seller-show-link"%>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-body-sub-title">
+        <span style="color:#51456A">販売商品一覧</span>
+      </div>
+
+      <ul class=item-lists>
+
+        <%= render "shared/item_middle" %>
+        <%= render "shared/item_middle" %>
+        <%= render "shared/item_middle" %>
+        <%= render "shared/item_middle" %>
+        <%= render "shared/item_middle" %>
+
+
+      </ul>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<%= render "shared/footer1" %>

@@ -1,17 +1,13 @@
 <header class="header1">
   <div class="logo1">
-    <%= link_to image_tag("logo1.PNG", class:"ecshop-icon1"), "#" %>
+    <%= link_to image_tag("logo1.PNG", class:"ecshop-icon1"), top_managements_path %>
   </div>
   <div class="for-seller">
     〜販売者様専用ページ〜
   </div>
   <div class="nav1">
     <ul class="buttons">
-      <%# if seller_signed_in? %>
-      <li><%#= link_to '販売者ログイン', "#", class: "seller-button" %></li>
-      <%# else %>
-      <li><%= link_to '販売者ログアウト', "#", class: "seller-button" %></li>
-      <%# end %>
+      <li><%= link_to '販売者ログアウト', destroy_seller_session_path, class: "seller-button", method: :delete %></li>
     </ul>
   </div>
 </header>

@@ -2,14 +2,14 @@
   <div class="side2-user-info">
     <div class="side2-user-name">
       ようこそ
-      <br>〇〇〇〇様
+      <br><%= current_seller.store_name %> 様
     </div>
   </div>
 
   <ul class="side-user-lists">
 
     <li class="side-user-list">
-      <%= link_to '>> 販売店情報編集', "#", class: "side-user-list-button" %>
+      <%= link_to '>> 販売店情報編集', edit_seller_registration_path, class: "side-user-list-button" %>
     </li>
     <li class="side-user-list">
       <%= link_to '>> 出品管理', "#", class: "side-user-list-button" %>
