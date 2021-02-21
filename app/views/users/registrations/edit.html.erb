@@ -6,7 +6,7 @@
 
   <div class="main-body">
 
-    <%= form_with url: "#", class: 'edit-main', local: true do |f| %>
+    <%= form_with model: @user, url: user_registration_path, class: 'edit-main', local: true do |f| %>
     <div class='edit-form-wrap'>
       <div class='form-header'>
         <h1 class='form-header-text'>
@@ -14,7 +14,7 @@
         </h1>
       </div>
 
-      <%#= render 'shared/error_messages', model: f.object %>
+      <%= render 'shared/error_messages', model: f.object %>
 
       <div class="form-group">
         <div class='form-text-wrap'>
@@ -32,29 +32,32 @@
         <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
       </div>
       <br>
+      <%= f.fields_for :profile do |f| %>
       <div class='shipping-address-form'>
         <div class="form-group">
           <div class='form-text-wrap'>
             <label class="form-text">郵便番号</label>
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_field :zip, class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
+          <%= f.text_field :zip_code, class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
         </div>
         <div class="form-group">
           <div class='form-text-wrap'>
             <label class="form-text">住所</label>
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_field :city, class:"input-default", id:"city", placeholder:"例）神奈川県横浜市緑区1-1フードマンション201"%>
+          <%= f.text_field :address, class:"input-default", id:"city", placeholder:"例）神奈川県横浜市緑区1-1フードマンション201"%>
         </div>
         <div class="form-group">
           <div class='form-text-wrap'>
             <label class="form-text">電話番号</label>
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_field :phone_num, class:"input-default", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
+          <%= f.text_field :phone_number, class:"input-default", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
 
         </div>
+        <% end %>
+
         <br>
         <p class='info-text-down'>※ お名前,生年月日を修正するには<span class='edit-info'>こちら</span>までご連絡ください。本人確認が必要になります。</p>
       </div>
@@ -63,7 +66,7 @@
 
       <div class="form-group">
         <h2 class='user-edit--bottom-text'>
-          「編集完了」のボタンを押すことにより、<span class= "edit-info">利用規約</span>に同意したものとみなします
+          「編集完了」のボタンを押すことにより、<span class="edit-info">利用規約</span>に同意したものとみなします
         </h2>
         <br>
       </div>
