@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :items
+  root to: 'app#top'
   
   resources :app do
     collection do
@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'app#top'
+  resources :items
+
+  
 
   devise_for :users, controllers: {
     sessions:      'users/sessions',
