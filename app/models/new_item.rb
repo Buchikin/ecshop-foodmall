@@ -1,7 +1,7 @@
 class NewItem
 
   include ActiveModel::Model
-  attr_accessor :name, :price, :information, :tag1, :tag2, :tag3, :tag4, :tag5, :allergies, :prefecture_id, :ship_day_id, :ship_type_id, :seller_id, :count, :item_id
+  attr_accessor :name, :price, :information, :tag1, :tag2, :tag3, :tag4, :tag5, :allergies, :prefecture_id, :ship_day_id, :ship_type_id, :seller_id, :count, :image
 
   with_options presence: true do
     validates :name
@@ -19,7 +19,11 @@ class NewItem
       validates :ship_day_id
       validates :ship_type_id
     end
+  end
 
+  def save
+    item = Item.create(name: name, price: price, information: information, tag1: tag1, tag2: tag2, tag3: tag3, tag4: tag4, tag5: tag5, allergies: allergies, prefecture_id: prefecture_id, ship_day_id: ship_day_id, ship_type_id: ship_type_id, seller_id: seller_id, :image)
+    Stock.create(count: count, item_id: item.id)
   end
 
 
