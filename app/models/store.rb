@@ -10,12 +10,13 @@ class Store < ApplicationRecord
       validates :responsible_kana
     end
 
-    validates :category_id
+    validates :shopcategory_id
     validates :zip_code
     validates :address
     validates :phone_number
     validates :information
     validates :responsible_phone
+    validates :image
 
   end
 
