@@ -1,7 +1,7 @@
 class CreateStores < ActiveRecord::Migration[6.0]
   def change
     create_table :stores do |t|
-      t.integer :category_id, null: false
+      t.integer :shopcategory_id, null: false
       t.string :zip_code, null: false
       t.string :address, null: false
       t.string :phone_number, null: false
