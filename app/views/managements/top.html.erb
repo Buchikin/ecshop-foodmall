@@ -49,12 +49,9 @@
 
       <ul class=item-lists>
 
-        <%= render "shared/item_middle" %>
-        <%= render "shared/item_middle" %>
-        <%= render "shared/item_middle" %>
-        <%= render "shared/item_middle" %>
-        <%= render "shared/item_middle" %>
-
+        <% @items.each do |item| %>
+        <%= render partial: "shared/item_seller_middle", locals: {item: item }%>
+        <% end %>
 
       </ul>
 
