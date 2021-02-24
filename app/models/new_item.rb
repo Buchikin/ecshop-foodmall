@@ -30,7 +30,7 @@ class NewItem
   end
 
   def save
-    item = Item.create(name: name, price: price, information: information, tag1: tag1, tag2: tag2, tag3: tag3, tag4: tag4, tag5: tag5, allergies: allergies, prefecture_id: prefecture_id, ship_day_id: ship_day_id, ship_type_id: ship_type_id, seller_id: seller_id, :image)
+    item = Item.create(name: name, price: price, information: information, tag1: tag1, tag2: tag2, tag3: tag3, tag4: tag4, tag5: tag5, prefecture_id: prefecture_id, ship_day_id: ship_day_id, ship_type_id: ship_type_id, seller_id: seller_id, image: image, allergies: allergies)
     Stock.create(count: count, item_id: item.id)
   end
 
