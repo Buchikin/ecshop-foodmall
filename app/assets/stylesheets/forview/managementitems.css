@@ -6,6 +6,7 @@
 .edit-buttons{
   display: flex;
   margin-bottom: 10px;
+  justify-content: flex-end;
 }
 
 .edit-button{

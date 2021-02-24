@@ -4,4 +4,7 @@ class ManagementsController < ApplicationController
     @items = current_seller.items
   end
 
+  def items
+    @items = current_seller.items
+  end
 end

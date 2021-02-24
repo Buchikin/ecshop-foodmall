@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :managements do
     collection do
       get 'top'
+      get 'items'
     end
   end
 
