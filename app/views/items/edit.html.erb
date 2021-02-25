@@ -1,0 +1,144 @@
+<%= render "shared/header3" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar2" %>
+
+  <div class="main-body">
+
+    <%= form_with model: @item, url: item_path, class: 'registration-main', local: true do |f| %>
+
+    <div class='form2-wrap'>
+      <div class='form-header'>
+        <h1 class='form-header-text'>
+          商品編集
+        </h1>
+      </div>
+
+      <%= render 'shared/error_messages', model: f.object %>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">商品名</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :name, class:"input-default", placeholder: "例) 簡単！カルボナーラセット"%>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">商品画像</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="click-upload">
+          <%= f.file_field :image, class:"seller-image" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">商品情報</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :information, class:"input-seller-info", placeholder: "例) 生クリームが無くても牛乳で手軽に作れるカルボナーラ！特製チーズセットをご用意！卵と牛乳を用意していただくだけで作れます！" %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">タグ(5つまで設定できます)</label>
+          <p class='info-text'>※各最大5文字</p>
+        </div>
+        <%= f.text_field :tag1, class:"input-default", placeholder:"パスタ"%>
+        <%= f.text_field :tag2, class:"input-default", placeholder:"イタリアン"%>
+        <%= f.text_field :tag3, class:"input-default", placeholder:"チーズ"%>
+        <%= f.text_field :tag4, class:"input-default", placeholder:""%>
+        <%= f.text_field :tag5, class:"input-default", placeholder:""%>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">発送する地域</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">発送までの日数</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:ship_day_id, ShipDay.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">発送の種類</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:ship_type_id, ShipType.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      </div>
+
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">アレルゲン表示(特定原材料7品目)</label>
+        </div>
+        <div class="allergies-check-box">
+          <% ["卵","乳","小麦","そば","落花生","えび","かに"].each.with_index do |allergy| %>
+          <%= f.check_box :allergies, {multiple: true}, allergy, nil %>
+          <%= allergy %>
+          <% end %>
+        </div>
+        <p class='info-text'>※その他のアレルゲンについては"商品情報"に記載してください</p>
+      </div>
+
+      <div class="form-group">
+        <div class="sell-price">
+          <label class="form-text">商品価格</label><span class="indispensable">必須</span>
+          <p class='info-text'>※価格は¥300~999999の範囲で設定してください</p>
+          <div class="price-content">
+            <div class="price-text">
+              <span>価格</span>
+            </div>
+            <span class="sell-yen">¥</span>
+            <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）980" %>
+          </div>
+          <div class="price-content">
+            <span>販売手数料 (5%)</span>
+            <span>
+              <span id='add-tax-price'></span>円
+            </span>
+          </div>
+          <div class="price-content">
+            <span>販売利益</span>
+            <span>
+              <span id='profit'></span>円
+          </div>
+          </span>
+        </div>
+      </div>
+
+
+      <br>
+        <div class="form-group">
+          <p class='form-info-text'>
+            「編集完了」のボタンを押すことにより、
+            <span class="seller-new-kiyaku">利用規約</span>に同意したものとみなします
+          </p>
+        </div>
+        <br>
+        <div class='register-btn'>
+          <%= f.submit "編集完了" ,class:"register-red-btn" %>
+        </div>
+        <br>
+
+
+
+      <% end %>
+
+    </div>
+
+  </div>
+</div>
+
+<%= render "shared/footer2" %>

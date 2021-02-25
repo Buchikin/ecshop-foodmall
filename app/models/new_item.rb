@@ -7,7 +7,6 @@ class NewItem
     validates :name
     validates :information
     validates :image
-    validates :allergies
     
     with_options numericality: { with: /\A[0-9]+\z/, message: "must be Half-width numbers"} do
       validates :price
