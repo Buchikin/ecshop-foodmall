@@ -1,0 +1,116 @@
+<%= render "shared/header1" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar1" %>
+
+  <div class="main-body">
+
+    <%= render "shared/searchbar" %>
+
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">商品詳細</span>
+      </div>
+
+      <div class="item-show-up">
+        <div class="item-show-image">
+          <%= image_tag @item.image ,class: "item-show-image" %>
+        </div>
+        <div class="item-show-info">
+          <div class="item-show-name"><b><%= @item.name %></b></div>
+          <div class="item-show-row2">
+            <ul class="item-show-tags">
+              <li class=item-show-tag><%= @item.tag1 %></li>
+              <li class=item-show-tag><%= @item.tag2 %></li>
+              <li class=item-show-tag><%= @item.tag3 %></li>
+              <li class=item-show-tag><%= @item.tag4 %></li>
+              <li class=item-show-tag><%= @item.tag5 %></li>
+            </ul>
+            <div class="item-show-seller">
+              <%= link_to @item.seller.store_name,"#", class: "item-show-seller" %>
+            </div>
+          </div>
+          <div class="item-show-text">
+            <%= @item.information %>
+          </div>
+          <div class="item-show-evaluation">評価 <span style="font-size:18pt">3.8</span> / 5</div>
+          <div class="item-show-allergies">含まれるアレルギー(7品目) <%= @item.allergies %></div>
+        </div>
+      </div>
+
+      <div class="item-show-down">
+        <div class="item-show-ship">
+          <span class="ship-text-info" , style="font-size:16pt">発送について</span>
+          <table class="item-show-ship">
+            <tbody>
+              <tr>
+                <th class="item-show-ship-prefecture">発送元の地域</th>
+                <td class="item-show-ship-prefecture-value"><%= @item.prefecture.name %></td>
+              </tr>
+              <tr>
+                <th class="item-show-ship-day">発送までの日数</th>
+                <td class="item-show-ship-day-value"><%= @item.ship_day.name %></td>
+              </tr>
+              <tr>
+                <th class="item-show-ship-typ">発送方法</th>
+                <td class="item-show-ship-typ-value"><%= @item.ship_type.name %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="item-show-stock">在庫 <span style="font-size:20pt"><%= @item.stock.count %></span> 個</div>
+        <div class="item-show-price"><%= @item.price %> 円 <span style="font-size:10pt">(税込)</span></div>
+        <%= link_to '購入へ進む', "#", class: "show-order-button" %>
+      </div>
+      <br>
+      <br>
+
+
+      <div class="item-show-review-title">
+        商品レビュー
+      </div>
+      <ul class=item-show-reviews>
+
+        <li class=item-show-review>
+          <div class="item-show-review-up">
+            <div class="item-show-review-name"><b>こころちゃん</b></div>
+            <div class="item-show-review-evaluation">評価 <span style="font-size:18pt">4.6</span> / 5</div>
+          </div>
+          <div class="item-show-review-text">世界を笑顔にできる料理だわ！ミッシェルに食べさせたいわね！さあ、みんな！一緒に！ハッピー！ラッキー！スマイルー！イェーイ！</div>
+        </li>
+
+        <li class=item-show-review>
+          <div class="item-show-review-up">
+            <div class="item-show-review-name"><b>こころちゃん</b></div>
+            <div class="item-show-review-evaluation">評価 <span style="font-size:18pt">4.6</span> / 5</div>
+          </div>
+          <div class="item-show-review-text">世界を笑顔にできる料理だわ！ミッシェルに食べさせたいわね！さあ、みんな！一緒に！ハッピー！ラッキー！スマイルー！イェーイ！</div>
+        </li>
+
+        <li class=item-show-review>
+          <div class="item-show-review-up">
+            <div class="item-show-review-name"><b>こころちゃん</b></div>
+            <div class="item-show-review-evaluation">評価 <span style="font-size:18pt">4.6</span> / 5</div>
+          </div>
+          <div class="item-show-review-text">世界を笑顔にできる料理だわ！ミッシェルに食べさせたいわね！さあ、みんな！一緒に！ハッピー！ラッキー！スマイルー！イェーイ！aaaaaaaaaaaaaaa嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼あああ嗚呼あ</div>
+        </li>
+
+        <li class=item-show-review>
+          <div class="item-show-review-up">
+            <div class="item-show-review-name"><b>こころちゃん</b></div>
+            <div class="item-show-review-evaluation">評価 <span style="font-size:18pt">4.6</span> / 5</div>
+          </div>
+          <div class="item-show-review-text">世界を笑顔にできる料理だわ！ミッシェルに食べさせたいわね！さあ、みんな！一緒に！ハッピー！ラッキー！スマイルー！イェーイ！</div>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
+
+<%= render "shared/footer1" %>

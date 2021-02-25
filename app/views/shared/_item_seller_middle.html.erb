@@ -1,11 +1,11 @@
 <li class="item-list">
   <div>
-    <%= link_to image_tag(item.image, class:"item-index-image"), item_path(item.id) %>
+    <%= image_tag item.image, class:"item-index-image" %>
   </div>
   <div class="item-index-info">
-    <b><%= link_to item.name,item_path(item.id), class: "item-index-name" %></b>
+    <b><div class="item-index-name"><%= item.name %></div></b>
     <div class="item-index-seller">
-      <%= link_to item.seller.store_name,"#", class: "item-index-seller" %>
+      <div class="item-index-seller"><%=  item.seller.store_name %></div>
     </div>
     <div class="item-index-3rd-row">
       <ul class="item-index-tags">

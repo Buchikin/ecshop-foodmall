@@ -77,7 +77,7 @@ Things you may want to cover:
 
 | Column | Type | Options |
 | - | - | - |
-| category_id | integer | null: false |
+| shopcategory_id | integer | null: false |
 | zip_code | string | null: false |
 | address | string | null: false |
 | phone_number | string | null: false |

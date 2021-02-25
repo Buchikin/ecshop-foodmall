@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_172720) do
+ActiveRecord::Schema.define(version: 2021_02_23_073617) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,25 @@ ActiveRecord::Schema.define(version: 2021_02_21_172720) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.text "information", null: false
+    t.string "tag1"
+    t.string "tag2"
+    t.string "tag3"
+    t.string "tag4"
+    t.string "tag5"
+    t.string "allergies", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "ship_day_id", null: false
+    t.integer "ship_type_id", null: false
+    t.bigint "seller_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -60,8 +79,16 @@ ActiveRecord::Schema.define(version: 2021_02_21_172720) do
     t.index ["reset_password_token"], name: "index_sellers_on_reset_password_token", unique: true
   end
 
+  create_table "stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "count", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_stocks_on_item_id"
+  end
+
   create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "category_id", null: false
+    t.integer "shopcategory_id"
     t.string "zip_code", null: false
     t.string "address", null: false
     t.string "phone_number", null: false
@@ -90,6 +117,8 @@ ActiveRecord::Schema.define(version: 2021_02_21_172720) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "items", "sellers"
   add_foreign_key "profiles", "users"
+  add_foreign_key "stocks", "items"
   add_foreign_key "stores", "sellers"
 end

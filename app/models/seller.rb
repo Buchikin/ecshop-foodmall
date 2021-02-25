@@ -14,6 +14,7 @@ class Seller < ApplicationRecord
 
   has_one :store
   accepts_nested_attributes_for :store, update_only: true
+  has_many :items
 
   def email_required?
     false

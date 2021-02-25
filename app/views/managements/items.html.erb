@@ -1,0 +1,37 @@
+<%= render "shared/header3" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar2" %>
+
+  <div class="main-body">
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">出品一覧</span>
+      </div>
+      <div>新規出品はこちらから→<%= link_to '新規出品', new_item_path,class:"new-item-button-link"%></div>
+      <br>
+      <ul class="seller-items">
+
+        <% @items.each do |item| %>
+        <li class="seller-item">
+          <%= render partial: "shared/item_seller_small", locals: {item: item }%>
+          <ul class="edit-buttons">
+            <li class="edit-button"><%= link_to '在庫数編集',"#",class:"edit-button-link"%></li>
+            <li class="edit-button"><%= link_to '商品編集', edit_item_path(item.id) ,class:"edit-button-link"%></li>
+            <li class="edit-button"><%= link_to '商品削除', item_path(item.id), class:"edit-button-link", method: :delete %></li>
+          </ul>
+        </li>
+        <% end %>
+
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<%= render "shared/footer2" %>
