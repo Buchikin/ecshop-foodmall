@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :items
+  resources :stocks, only: [:edit, :update]
 
   
 
