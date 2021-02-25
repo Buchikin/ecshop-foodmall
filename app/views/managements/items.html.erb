@@ -18,7 +18,7 @@
         <li class="seller-item">
           <%= render partial: "shared/item_seller_small", locals: {item: item }%>
           <ul class="edit-buttons">
-            <li class="edit-button"><%= link_to '在庫数編集',"#",class:"edit-button-link"%></li>
+            <li class="edit-button"><%= link_to '在庫数編集',edit_stock_path(item.id),class:"edit-button-link"%></li>
             <li class="edit-button"><%= link_to '商品編集', edit_item_path(item.id) ,class:"edit-button-link"%></li>
             <li class="edit-button"><%= link_to '商品削除', item_path(item.id), class:"edit-button-link", method: :delete %></li>
           </ul>
