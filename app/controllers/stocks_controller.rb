@@ -1,7 +1,7 @@
 class StocksController < ApplicationController
   def edit
-    @item = Item.find(params[:id])
-    @stock = Stock.find(@item.stock.id)
+    @stock = Stock.find(params[:id])
+    @item = Item.find(params[:item_id])
   end
 
   def update
@@ -9,6 +9,7 @@ class StocksController < ApplicationController
     if @stock.update(stock_params)
       redirect_to items_managements_path
     else
+      @item = Item.find(params[:item_id])
       render :edit
     end
   end
