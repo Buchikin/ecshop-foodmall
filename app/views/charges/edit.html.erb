@@ -1,0 +1,97 @@
+<%= render "shared/header1" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar1" %>
+
+  <div class="main-body">
+    <div class="main-body-body">
+
+      <%= form_with url: "#", class: 'registration-main', local: true do |f| %>
+
+      <div class='form2-wrap'>
+        <div class='form-header'>
+          <h1 class='form-header-text'>
+            残高チャージ
+          </h1>
+        </div>
+
+        <%#= render 'shared/error_messages', model: f.object %>
+
+        <div class='credit-card-form'>
+          
+          <div class="form-group">
+          <h1 class='info-input-haedline'>
+            クレジットカード情報入力
+          </h1>
+            <div class='form-text-wrap'>
+              <label class="form-text">カード情報</label>
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.text_field :number, class:"input-default", id:"card-number", placeholder:"カード番号(半角英数字)", maxlength:"16" %>
+            <div class='available-card'>
+              <%= image_tag 'card-visa.gif', class: 'card-logo'%>
+              <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
+              <%= image_tag 'card-jcb.gif', class: 'card-logo'%>
+              <%= image_tag 'card-amex.gif', class: 'card-logo'%>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class='form-text-wrap'>
+              <label class="form-text">有効期限</label>
+              <span class="indispensable">必須</span>
+            </div>
+            <div class='input-expiration-date-wrap'>
+              <%= f.text_area :exp_month, class:"input-expiration-date", id:"card-exp-month", placeholder:"例)3" %>
+              <p>月</p>
+              <%= f.text_area :exp_year, class:"input-expiration-date", id:"card-exp-year", placeholder:"例)23" %>
+              <p>年</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class='form-text-wrap'>
+              <label class="form-text">セキュリティコード</label>
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.text_field :cvc, class:"input-default", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">チャージ額</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class="charge-form">
+            <span style="font-size:15pt">¥</span>
+            <%= f.text_field :zip, class:"input-charge-default", placeholder: "半角数字で入力してください"%>
+          </div>
+          <div class="charge-changes">
+            <div class="charge-change">
+              <div class="charge-change-text">現在の残高</div>
+              <div class="charge-change-value">¥ 10000</div>
+            </div>
+            <span style="font-size:15pt">→</span>
+            <div class="charge-change">
+              <div class="charge-change-text">チャージ後の残高</div>
+              <div class="charge-change-value">¥ 15000</div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class='register-btn'>
+          <%= f.submit "チャージ" ,class:"register-red-btn" %>
+        </div>
+        <br>
+
+
+        <% end %>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<%= render "shared/footer2" %>
