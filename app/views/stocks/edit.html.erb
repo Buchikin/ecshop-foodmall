@@ -1,0 +1,53 @@
+<%= render "shared/header3" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar2" %>
+
+  <div class="main-body">
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">在庫数編集</span>
+      </div>
+
+      <div class="item-seller-small">
+        <div class="item--seller-small-image">
+          <%= image_tag @item.image ,class: "item-seller-small-image" %>
+        </div>
+        <div class="item-seller-small-info">
+          <div class=item-seller-small-name><%= @item.name %></div>
+          <div class="item-seller-small-seller"><%= @item.seller.store_name %></div>
+        </div>
+      </div>
+
+      <%= form_with model:@stock, url: item_stock_path, local: true do |f| %>
+
+            <%= render 'shared/error_messages', model: f.object %>
+
+      <div class=stock-edit>
+        <div class="now-stock"> 現在の在庫数<span style="font-size:20pt;margin:0 5pt"><%= @item.stock.count %></span>セット</div>
+        <div class="new-stock"> 編集後の在庫数
+          <%= f.text_field :count, value: "", class:"input-stock-edit"%>セット
+        </div>
+      </div>
+
+      <div class='register-btn'>
+        <%= f.submit "編集完了" ,class:"register-red-btn" %>
+      </div>
+
+      <% end %>
+
+
+    </div>
+
+
+
+
+
+  </div>
+</div>
+
+</div>
+
+<%= render "shared/footer2" %>

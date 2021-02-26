@@ -1,4 +1,6 @@
 class ManagementsController < ApplicationController
+  before_action :authenticate_seller!
+
 
   def top
     @items = current_seller.items
