@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :stocks, only: [:edit, :update]
   end
 
-  
+  resources :charge, only: [:edit, :update]
 
   devise_for :users, controllers: {
     sessions:      'users/sessions',
