@@ -21,12 +21,14 @@
         </div>
       </div>
 
-      <%= form_with model:@stock, url: stock_path, local: true do |f| %>
+      <%= form_with model:@stock, url: item_stock_path, local: true do |f| %>
+
+            <%= render 'shared/error_messages', model: f.object %>
 
       <div class=stock-edit>
-        <div class="now-stock"> 現在の在庫数<span style="font-size:20pt;margin:0 5pt"><%= @stock.count %></span>セット</div>
+        <div class="now-stock"> 現在の在庫数<span style="font-size:20pt;margin:0 5pt"><%= @item.stock.count %></span>セット</div>
         <div class="new-stock"> 編集後の在庫数
-          <%= f.text_field :count, class:"input-stock-edit"%>セット
+          <%= f.text_field :count, value: "", class:"input-stock-edit"%>セット
         </div>
       </div>
 
