@@ -16,8 +16,8 @@
 }
 
 .item-index-image{
+  height: 232px;
   width: 310px;
-  
 }
 .item-index-info{
   margin-top: 5px;
@@ -42,11 +42,11 @@
   padding-top: 5px;
 }
 .item-index-tags{
-  margin: auto 0 ;
+  height: 20px;
   display: flex;
-  font-size: 10px;
 }
 .item-index-tag{
+  font-size: 10px;
   margin: 2px;
   background-color: rgb(219, 219, 219);
 }

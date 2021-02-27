@@ -1,0 +1,68 @@
+<%= render "shared/header1" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar1" %>
+
+  <div class="main-body">
+
+    <%= render "shared/searchbar" %>
+
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">販売店詳細</span>
+      </div>
+
+
+      <div class="seller-show-up">
+        <div class="seller-show-image">
+          <%= image_tag @seller.store.image ,class: "seller-show-image" %>
+        </div>
+        <div class="seller-show-info">
+          <div class="seller-show-row1">
+            <div class="seller-show-row1-left">
+              <div class="seller-show-name"><b><%= @seller.store_name %></b></div>
+              <div class="seller-show-category"><%= @seller.store.shopcategory.name %></div>
+            </div>
+            <%= link_to '販売店に問い合わせ', "#", class: "seller-show-message" %>
+          </div>
+          <div class="seller-show-text">
+            <%= @seller.store.information %>
+          </div>
+          <div class="seller-show-row2">
+            ・〒 <%= @seller.store.zip_code %> <%= @seller.store.address %>
+          </div>
+          <div class="seller-show-row2">
+            ・Tel <%= @seller.store.phone_number %>
+          </div>
+          <div class="seller-show-row2">
+            ・公式サイト
+            <%= link_to @seller.store.url, @seller.store.url,class: "seller-show-link"%>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="seller-show-item-title">
+        取扱商品一覧
+      </div>
+
+      <ul class=item-lists>
+
+        <% @items.each do |item| %>
+        <%= render partial: "shared/item_middle", locals: {item: item }%>
+        <% end %>
+
+      </ul>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<%= render "shared/footer1" %>

@@ -13,6 +13,7 @@
 }
 
 .item-show-info{
+  width: 100%;
   margin:0 10px;
 }
 
@@ -84,7 +85,7 @@ table th {
 }
 
 table td {
-  width: 100px;
+  width: 120px;
 }
 
 .item-show-ship{
