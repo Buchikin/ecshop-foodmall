@@ -32,4 +32,6 @@ Rails.application.routes.draw do
     passwords:     'sellers/passwords',
     registrations: 'sellers/registrations'
   }
+
+  resources :sellers, only: :show
 end
