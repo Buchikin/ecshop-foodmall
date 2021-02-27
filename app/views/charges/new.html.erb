@@ -7,7 +7,7 @@
   <div class="main-body">
     <div class="main-body-body">
 
-      <%= form_with model:@charge, url: charge_path, class: 'charge-pay',id: 'charge-pay', local: true do |f| %>
+      <%= form_with model:@charge, url: charges_path, class: 'charge-pay',id: 'charge-pay', local: true do |f| %>
 
       <div class='form2-wrap'>
         <div class='form-header'>
@@ -17,6 +17,7 @@
         </div>
 
         <%= render 'shared/error_messages', model: f.object %>
+
         <div class='credit-card-form'>
           
           <div class="form-group">
@@ -63,12 +64,12 @@
           </div>
           <div class="charge-form">
             <span style="font-size:15pt">¥</span>
-            <%= f.text_field :pay, class:"input-charge-default", placeholder: "1以上の半角数字で入力してください",value: ""%>
+            <%= f.text_field :pay, class:"input-charge-default", placeholder: "1以上の半角数字で入力してください"%>
           </div>
           <div class="charge-changes">
             <div class="charge-change">
               <div class="charge-change-text">現在の残高</div>
-              <div class="charge-change-value">¥ <%= current_user.charge.pay %></div>
+              <div class="charge-change-value">¥ 0</div>
             </div>
             <span style="font-size:15pt">→</span>
             <div class="charge-change">

@@ -5,10 +5,22 @@
       ようこそ <%= current_user.nickname %> さん
     </div>
     <div class="side-user-charge">
-      残高〇〇〇〇〇円
+      残高
+
+      <% if Charge.exists?(user_id: "#{current_user.id}")%>
+      <%= current_user.charge.pay %>
+      <% else %>
+      0
+      <% end %>
+      円
     </div>
     <div class="side-charge">
-      残高の追加はこちらから→<%= link_to 'チャージ', "#", class: "side-charge-button" %>
+      残高の追加はこちらから→
+      <% if Charge.exists?(user_id: "#{current_user.id}")%>
+      <%= link_to 'チャージ', edit_charge_path(current_user.charge.id), class: "side-charge-button" %> <%# チャージ履歴あり %>
+      <% else %>
+      <%= link_to 'チャージ', new_charge_path, class: "side-charge-button" %> <%# 初めてのチャージ %>
+      <% end %>
     </div>
     <%= link_to 'ログアウト', destroy_user_session_path, class: "side-logout-button" ,method: :delete%>
   </div>
