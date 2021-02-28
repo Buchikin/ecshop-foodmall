@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
   end
 
   def edit
-    @charge = Charge.find(params[:id])
+    @charge = Charge.find(current_user.charge.id)
   end
 
   def update
