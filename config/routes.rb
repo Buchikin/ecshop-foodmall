@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:new, :create, :index] do
-    resources :revies, only: [:new, :create, :edit, :update, :destroy]
+    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   end
 
 
