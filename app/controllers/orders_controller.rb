@@ -5,13 +5,13 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @item = Item.find(params[:item_id])
+    @item = Item.find(params[:format])
     @charge = Charge.find(current_user.charge.id)
     @new_order = NewOrder.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
+    @item = Item.find(params[:format])
     @stock = Stock.find(@item.stock.id)
     @charge = Charge.find(current_user.charge.id)
     purchase_price = params[:new_order][:quantity].to_i * @item.price

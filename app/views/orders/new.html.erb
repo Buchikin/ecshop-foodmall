@@ -9,7 +9,7 @@
 
     <div class="main-body-body">
 
-      <%= form_with model:@new_order, url: item_orders_path, class: 'registration-main', local: true do |f| %>
+      <%= form_with model:@new_order, url: orders_path(@item.id), class: 'registration-main', local: true do |f| %>
 
       <div class='form2-wrap'>
         <div class='form-header'>

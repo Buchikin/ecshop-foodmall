@@ -17,10 +17,9 @@ Rails.application.routes.draw do
 
   resources :items do
     resources :stocks, only: [:edit, :update]
-    resources :orders, only: [:new, :create, :index]
   end
 
-
+  resources :orders, only: [:new, :create, :index]
 
 
 
