@@ -1,0 +1,60 @@
+<%= render "shared/header1" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar1" %>
+
+  <div class="main-body">
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">評価・レビュー</span>
+      </div>
+
+      <div class="seller-item"> <span style="color:#51456A;font-size:12pt">購入した商品</span>
+        <%= render "shared/item_small" %>
+        <div class="ordered-info">
+          <div class="ordered-day">購入日 <%= @order.created_at.to_s(:datetime_jp) %></div>
+          <div class="ordered-count"><%= @order.quantity %> セット</div>
+          <div class="ordered-price">¥ <%= @order.purchase_price %></div>
+        </div>
+
+      </div>
+
+      <%= form_with model:@review, url: order_reviews_path, class: 'review-form', local: true do |f| %>
+
+      <div class='review-form-wrap'>
+
+        <%= render 'shared/error_messages', model: f.object %>
+
+        <div class="review-form-group">
+          <div class='review-form-text-wrap'>
+            <label class="review-form-text">評価</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <p class='info-text'>※5段階評価</p>
+          <%= f.select :evaluation, [1,2,3,4,5], {include_blank: '--'}, class: 'review-evaluation-select' %>
+        </div>
+
+        <div class="review-form-group">
+          <div class='review-form-text-wrap'>
+            <label class="review-form-text">商品レビュー</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :text, class:"input-review", placeholder: "" %>
+        </div>
+        <br>
+        <div class='review-register-btn'>
+          <%= f.submit "レビュー投稿" ,class:"review-register-red-btn" %>
+        </div>
+      </div>
+
+
+      <% end %>
+
+    </div>
+  </div>
+
+</div>
+
+<%= render "shared/footer2" %>
