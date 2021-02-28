@@ -17,9 +17,9 @@
     <div class="side-charge">
       残高の追加はこちらから→
       <% if Charge.exists?(user_id: "#{current_user.id}")%>
-      <%= link_to 'チャージ', edit_charge_path(current_user.charge.id), class: "side-charge-button" %> <%# チャージ履歴あり %>
+      <%= link_to 'チャージ', edit_user_charge_path(current_user.id,current_user.charge.id), class: "side-charge-button" %> <%# チャージ履歴あり %>
       <% else %>
-      <%= link_to 'チャージ', new_charge_path, class: "side-charge-button" %> <%# 初めてのチャージ %>
+      <%= link_to 'チャージ', new_user_charge_path, class: "side-charge-button" %> <%# 初めてのチャージ %>
       <% end %>
     </div>
     <%= link_to 'ログアウト', destroy_user_session_path, class: "side-logout-button" ,method: :delete%>
