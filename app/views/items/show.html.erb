@@ -62,7 +62,7 @@
         </div>
         <div class="item-show-stock">在庫 <span style="font-size:20pt"><%= @item.stock.count %></span> 個</div>
         <div class="item-show-price"><%= @item.price %> 円 <span style="font-size:10pt">(税込)</span></div>
-        <%= link_to '購入へ進む', "#", class: "show-order-button" %>
+        <%= link_to '購入へ進む', new_order_path(@item.id), class: "show-order-button" %>
       </div>
       <br>
       <br>

@@ -1,0 +1,151 @@
+<%= render "shared/header1" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar1" %>
+
+  <div class="main-body">
+
+
+    <div class="main-body-body">
+
+      <%= form_with model:@new_order, url: orders_path(@item.id), class: 'registration-main', local: true do |f| %>
+
+      <div class='form2-wrap'>
+        <div class='form-header'>
+          <h1 class='form-header-text'>
+            商品購入
+          </h1>
+        </div>
+
+        <%= render 'shared/error_messages', model: f.object %>
+
+        <div class="order-item-info">
+          <div class="new-oreder-small-item">
+            <%= render "shared/item_small" %>
+          </div>
+          <div class="order-ship-info">
+            <div class="item-show-ship">
+              <span class="ship-text-info" , style="font-size:16pt">発送について</span>
+              <table class="item-show-ship">
+                <tbody>
+                  <tr>
+                    <th class="item-show-ship-prefecture">発送元の地域</th>
+                    <td class="item-show-ship-prefecture-value"><%= @item.prefecture.name %></td>
+                  </tr>
+                  <tr>
+                    <th class="item-show-ship-day">発送までの日数</th>
+                    <td class="item-show-ship-day-value"><%= @item.ship_day.name %></td>
+                  </tr>
+                  <tr>
+                    <th class="item-show-ship-typ">発送方法</th>
+                    <td class="item-show-ship-typ-value"><%= @item.ship_type.name %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-count">
+          <div class="order-quantity">
+            <div class='form-text-wrap'>
+              <label class="form-text">購入点数</label>
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.text_field :quantity, class:"input-quantity"%>
+          </div>
+          <div class="order-price">1点 ¥ <%= @item.price %></div>
+          <div class="order-sum-price">総支払い金額<span style="font-size:20pt;margin-left:20px">¥21000</span></div>
+        </div>
+
+        <div class="form-group">
+          <div class="order-charge-changes">
+            <div class="charge-change">
+              <div class="charge-change-text">現在の残高</div>
+              <div class="charge-change-value">¥ <%= @charge.pay %></div>
+            </div>
+            <span style="font-size:15pt">→</span>
+            <div class="charge-change">
+              <div class="charge-change-text">購入後の残高</div>
+              <div class="charge-change-value">¥ 15000</div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <p class='form-info-header'>
+            お届け先情報
+          </p>
+          <p class='form-info-text'>
+            登録済のお名前と住所を表示しております。別のお届け先を希望する場合は以下を変更してください。
+          </p>
+        </div>
+
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">お名前(全角)</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class='input-name-wrap'>
+            <%= f.text_area :last_name, class:"input-name", id:"last-name", placeholder: "姓", value: current_user.profile.last_name %>
+            <%= f.text_area :first_name, class:"input-name", id:"first-name", placeholder: "名", value: current_user.profile.first_name%>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">お名前カナ(全角)</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <div class='input-name-wrap'>
+            <%= f.text_area :last_name_kana, class:"input-name", id:"last-name-kana", placeholder: "姓", value: current_user.profile.last_name_kana%>
+            <%= f.text_area :first_name_kana, class:"input-name", id:"first-name-kana", placeholder: "名", value: current_user.profile.last_name_kana %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">郵便番号</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :zip_code, class:"input-default", id:"postal-code", maxlength:"8", value: current_user.profile.zip_code %>
+        </div>
+
+        <div class="form-group">
+          <div class='form-text-wrap'>
+            <label class="form-text">住所</label>
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_field :address, class:"input-default", id:"address", value: current_user.profile.address%>
+        </div>
+
+        <div class="form-group">
+          <p class='form-info-text'>
+            「購入」のボタンを押すことにより、
+            <span class="seller-new-kiyaku">利用規約</span>に同意したものとみなします。
+          </p>
+        </div>
+        <br>
+        <div class='register-btn'>
+          <%= f.submit "購入" ,class:"register-red-btn" %>
+        </div>
+        <br>
+
+
+
+        <% end %>
+
+
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<%= render "shared/footer1" %>
