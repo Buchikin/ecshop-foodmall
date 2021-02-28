@@ -17,9 +17,12 @@ Rails.application.routes.draw do
 
   resources :items do
     resources :stocks, only: [:edit, :update]
+    resources :orders, only: [:new, :create, :index]
   end
 
-  resources :charges, only: [:new, :create, :edit, :update]
+
+
+
 
   devise_for :users, controllers: {
     sessions:      'users/sessions',
@@ -33,5 +36,10 @@ Rails.application.routes.draw do
     registrations: 'sellers/registrations'
   }
 
+
   resources :sellers, only: :show
+  resources :users do
+    resources :charges, only: [:new, :create, :edit, :update]
+  end
+
 end
