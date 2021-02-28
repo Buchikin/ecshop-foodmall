@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     resources :stocks, only: [:edit, :update]
   end
 
-  resources :orders, only: [:new, :create, :index]
+  resources :orders, only: [:new, :create, :index] do
+    resources :revies, only: [:new, :create, :edit, :update, :destroy]
+  end
 
 
 

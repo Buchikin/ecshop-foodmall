@@ -14,6 +14,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile, update_only: true
   has_one :charge
   has_many :orders
+  has_many :reviews
 
 
   def update_without_current_password(params, *options)
