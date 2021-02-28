@@ -1,0 +1,49 @@
+<%= render "shared/header1" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar1" %>
+
+  <div class="main-body">
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">購入一覧</span>
+      </div>
+
+
+      <ul class="seller-items">
+
+        <% @orders.each do |order| %>
+        <% @item = order.item %>
+        <li class="seller-item">
+          <%= render "shared/item_small" %>
+          <div class="ordered-info">
+            <div class="ordered-day">購入日 <%= order.created_at.to_s(:datetime_jp) %></div>
+            <div class="ordered-count"><%= order.quantity %>セット</div>
+            <div class="ordered-price">¥<%= order.purchase_price %></div>
+          </div>
+
+          <%# if  %>
+          <div class="order-info-row2">評価・レビューは投稿済みです
+            <%= link_to '編集',"#",class:"button-for-review"%>
+            <%= link_to '削除',"#",class:"button-for-review"%>
+          </div>
+          <%# else %>
+          <div class="order-info-row2">
+            <%= link_to '評価・レビューを投稿',"#",class:"button-for-review"%>
+          </div>
+          <%# end %>
+        </li>
+
+        <% end %>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<%= render "shared/footer2" %>

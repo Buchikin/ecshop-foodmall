@@ -34,7 +34,7 @@
       <%= link_to '>> お気に入り販売店', "#", class: "side-user-list-button" %>
     </li>
     <li class="side-user-list">
-      <%= link_to '>> 購入した商品', "#", class: "side-user-list-button" %>
+      <%= link_to '>> 購入した商品', item_orders_path(current_user.id), class: "side-user-list-button" %>
     </li>
     <li class="side-user-list">
       <%= link_to '>> 販売店とのメッセージ', "#", class: "side-user-list-button" %>
