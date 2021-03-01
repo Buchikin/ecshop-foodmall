@@ -156,3 +156,7 @@ table td {
 .item-show-review-text{
   margin: 10px;
 }
+
+.item-show-review-date{
+  margin: 10px 0 0 15px;
+}

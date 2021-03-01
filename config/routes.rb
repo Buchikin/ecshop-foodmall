@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     collection do
       get 'top'
       get 'items'
+      get 'orders'
     end
   end
 
@@ -19,7 +20,9 @@ Rails.application.routes.draw do
     resources :stocks, only: [:edit, :update]
   end
 
-  resources :orders, only: [:new, :create, :index]
+  resources :orders, only: [:new, :create, :index] do
+    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
+  end
 
 
 

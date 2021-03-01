@@ -29,13 +29,21 @@
               <li class=item-show-tag><%= @item.tag5 %></li>
             </ul>
             <div class="item-show-seller">
-              <%= link_to @item.seller.store_name,"#", class: "item-show-seller" %>
+              <%= link_to @item.seller.store_name,seller_path(@item.seller.id), class: "item-show-seller" %>
             </div>
           </div>
           <div class="item-show-text">
             <%= @item.information %>
           </div>
-          <div class="item-show-evaluation">評価 <span style="font-size:18pt">3.8</span> / 5</div>
+          <div class="item-show-evaluation">評価
+            <span style="font-size:18pt">
+              <% if Review.exists?(item_id: "#{@item.id}") %>
+              <%= Review.where(item_id: "#{@item.id}").average(:evaluation).round(1) %>
+              <% else %>
+              <span style="font-size:8pt">未評価</span>
+              <% end %>
+            </span> / 5
+          </div>
           <div class="item-show-allergies">含まれるアレルギー(7品目) <%= @item.allergies %></div>
         </div>
       </div>
@@ -73,37 +81,22 @@
       </div>
       <ul class=item-show-reviews>
 
-        <li class=item-show-review>
-          <div class="item-show-review-up">
-            <div class="item-show-review-name"><b>こころちゃん</b></div>
-            <div class="item-show-review-evaluation">評価 <span style="font-size:18pt">4.6</span> / 5</div>
-          </div>
-          <div class="item-show-review-text">世界を笑顔にできる料理だわ！ミッシェルに食べさせたいわね！さあ、みんな！一緒に！ハッピー！ラッキー！スマイルー！イェーイ！</div>
-        </li>
 
+        <% if Review.exists?(item_id: "#{@item.id}") %>
+        <% @reviews.each do |review| %>
         <li class=item-show-review>
           <div class="item-show-review-up">
-            <div class="item-show-review-name"><b>こころちゃん</b></div>
-            <div class="item-show-review-evaluation">評価 <span style="font-size:18pt">4.6</span> / 5</div>
+            <div class="item-show-review-name"><b><%= review.user.nickname %></b> さん</div>
+            <div class="item-show-review-evaluation">評価 <span style="font-size:18pt"><%= review.evaluation %></span> / 5
+            </div>
+            <div class="item-show-review-date">購入日<%= review.order.created_at.to_s(:date_jp) %></div>
           </div>
-          <div class="item-show-review-text">世界を笑顔にできる料理だわ！ミッシェルに食べさせたいわね！さあ、みんな！一緒に！ハッピー！ラッキー！スマイルー！イェーイ！</div>
+          <div class="item-show-review-text"><%= review.text %></div>
         </li>
-
-        <li class=item-show-review>
-          <div class="item-show-review-up">
-            <div class="item-show-review-name"><b>こころちゃん</b></div>
-            <div class="item-show-review-evaluation">評価 <span style="font-size:18pt">4.6</span> / 5</div>
-          </div>
-          <div class="item-show-review-text">世界を笑顔にできる料理だわ！ミッシェルに食べさせたいわね！さあ、みんな！一緒に！ハッピー！ラッキー！スマイルー！イェーイ！aaaaaaaaaaaaaaa嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼嗚呼あああ嗚呼あ</div>
-        </li>
-
-        <li class=item-show-review>
-          <div class="item-show-review-up">
-            <div class="item-show-review-name"><b>こころちゃん</b></div>
-            <div class="item-show-review-evaluation">評価 <span style="font-size:18pt">4.6</span> / 5</div>
-          </div>
-          <div class="item-show-review-text">世界を笑顔にできる料理だわ！ミッシェルに食べさせたいわね！さあ、みんな！一緒に！ハッピー！ラッキー！スマイルー！イェーイ！</div>
-        </li>
+        <% end %>
+        <% else %>
+        <div style="color:#51456A">レビューはありません</div>
+        <% end %>
 
       </ul>
 

@@ -15,12 +15,13 @@
       <ul class="seller-items">
 
         <% @items.each do |item| %>
+        <% @item = item %>
         <li class="seller-item">
-          <%= render partial: "shared/item_seller_small", locals: {item: item }%>
+          <%= render partial: "shared/item_seller_small"%>
           <ul class="edit-buttons">
             <li class="edit-button"><%= link_to '在庫数編集',edit_item_stock_path(item.id,item.stock.id),class:"edit-button-link"%></li>
             <li class="edit-button"><%= link_to '商品編集', edit_item_path(item.id) ,class:"edit-button-link"%></li>
-            <li class="edit-button"><%= link_to '商品削除', item_path(item.id), class:"edit-button-link", method: :delete %></li>
+            <%# <li class="edit-button"><%= link_to '商品削除', item_path(item.id), class:"edit-button-link", method: :delete </li>  %>
           </ul>
         </li>
         <% end %>

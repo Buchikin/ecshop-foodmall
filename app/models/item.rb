@@ -29,6 +29,7 @@ class Item < ApplicationRecord
   has_one :stock
   has_one_attached :image
   has_many :orders
+  has_many :reviews
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture

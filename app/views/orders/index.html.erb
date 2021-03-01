@@ -24,16 +24,16 @@
             <div class="ordered-price">¥<%= order.purchase_price %></div>
           </div>
 
-          <%# if  %>
+          <% if Review.exists?(order_id:  "#{order.id}") %>
           <div class="order-info-row2">評価・レビューは投稿済みです
-            <%= link_to '編集',"#",class:"button-for-review"%>
-            <%= link_to '削除',"#",class:"button-for-review"%>
+            <%= link_to '編集',edit_order_review_path(order.id,order.review.id),class:"button-for-review"%>
+            <%= link_to '削除', order_review_path(order.id,order.review.id), class:"button-for-review",method: :delete%>
           </div>
-          <%# else %>
+          <% else %>
           <div class="order-info-row2">
-            <%= link_to '評価・レビューを投稿',"#",class:"button-for-review"%>
+            <%= link_to '評価・レビューを投稿',new_order_review_path(order.id),class:"button-for-review"%>
           </div>
-          <%# end %>
+          <% end %>
         </li>
 
         <% end %>

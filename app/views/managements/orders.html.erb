@@ -1,0 +1,51 @@
+<%= render "shared/header3" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar2" %>
+
+  <div class="main-body">
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">購入された商品一覧</span>
+      </div>
+
+
+      <ul class="seller-items">
+
+        <% @orders.each do |order| %>
+        <% @item = order.item %>
+        <li class="seller-item">
+          <%= render "shared/item_seller_small"%>
+          <div class="manage-ordered-info">
+            <div class="manage-ordered-info-left">
+              <div class="order-user-info-title">購入情報</div>
+              <div class="order-user-info">
+                <div class="manage-ordered-day">購入日 <%= order.created_at.to_s(:datetime_jp) %></div>
+                <div class="manage-ordered-count"><%= order.quantity %>セット</div>
+                <div class="manage-ordered-price">¥<%= order.purchase_price %></div>
+              </div>
+            </div>
+            <div class="manage-ordered-info-right">
+              <div class="order-user-info-title">お届け先お客様情報</div>
+              <div class="order-user-info">
+                <div class="order-user-name"><%= order.shipping.last_name %><%= order.shipping.first_name %> (<%= order.shipping.last_name_kana %><%= order.shipping.first_name_kana %>) 様</div>
+                <div class="order-user-zip">〒 <%= order.shipping.zip_code %></div>
+                <div class="order-user-address"><%= order.shipping.address %></div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <% end %>
+
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<%= render "shared/footer2" %>
