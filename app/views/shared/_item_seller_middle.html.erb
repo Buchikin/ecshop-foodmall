@@ -3,7 +3,9 @@
     <%= image_tag item.image, class:"item-index-image" %>
   </div>
   <div class="item-index-info">
-    <b><div class="item-index-name"><%= item.name %></div></b>
+    <b>
+      <div class="item-index-name"><%= item.name %></div>
+    </b>
     <div class="item-index-seller">
       <div class="item-index-seller"><%=  item.seller.store_name %></div>
     </div>
@@ -15,7 +17,15 @@
         <li class=item-index-tag><%= item.tag4 %></li>
         <li class=item-index-tag><%= item.tag5 %></li>
       </ul>
-      <div class="item-index-evaluation">評価 <span style="font-size:15pt">3.8</span> / 5</div>
+      <div class="item-index-evaluation">評価
+        <span style="font-size:15pt">
+          <% if Review.exists?(item_id: "#{item.id}") %>
+          <%= Review.where(item_id: "#{item.id}").average(:evaluation).round(1) %>
+          <% else %>
+          <span style="font-size:8pt">未評価</span>
+          <% end %>
+        </span> / 5
+      </div>
     </div>
     <div class="item-index-4th-row">
       <div class="item-index-stock">在庫 <span style="font-size:15pt"><%= item.stock.count %></span> 個</div>
