@@ -1,12 +1,12 @@
 <div class="item-seller-small">
   <div class="item--seller-small-image">
-    <%= image_tag item.image ,class: "item-seller-small-image" %>
+    <%= image_tag @item.image ,class: "item-seller-small-image" %>
   </div>
   <div class="item-seller-small-info">
-    <div class=item-seller-small-name><%= item.name %></div>
+    <div class=item-seller-small-name><%= @item.name %></div>
     <div class="item-seller-small-row2">
-      <div class="item-seller-small-seller"><%= item.seller.store_name %></div>
-      <div class="item-seller-small-stock">在庫 <%= item.stock.count %> セット</div>
+      <div class="item-seller-small-seller"><%= @item.seller.store_name %></div>
+      <div class="item-seller-small-stock">在庫 <%= @item.stock.count %> セット</div>
     </div>
   </div>
 </div>

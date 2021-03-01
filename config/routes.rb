@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     collection do
       get 'top'
       get 'items'
+      get 'orders'
     end
   end
 
