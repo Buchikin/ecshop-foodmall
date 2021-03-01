@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    #@item.allergies = @item.allergies
     @reviews = Review.where(item_id: @item.id)
   end
 

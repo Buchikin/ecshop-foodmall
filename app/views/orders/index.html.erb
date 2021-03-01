@@ -27,7 +27,7 @@
           <% if Review.exists?(order_id:  "#{order.id}") %>
           <div class="order-info-row2">評価・レビューは投稿済みです
             <%= link_to '編集',edit_order_review_path(order.id,order.review.id),class:"button-for-review"%>
-            <%= link_to '削除',"#",class:"button-for-review"%>
+            <%= link_to '削除', order_review_path(order.id,order.review.id), class:"button-for-review",method: :delete%>
           </div>
           <% else %>
           <div class="order-info-row2">
