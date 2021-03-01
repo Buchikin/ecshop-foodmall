@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_182523) do
+ActiveRecord::Schema.define(version: 2021_03_01_180634) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 2021_02_28_182523) do
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "item_name", null: false
+    t.text "message", null: false
+    t.integer "whom", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+  end
+
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "quantity", null: false
     t.integer "purchase_price", null: false
@@ -97,6 +107,15 @@ ActiveRecord::Schema.define(version: 2021_02_28_182523) do
     t.index ["item_id"], name: "index_reviews_on_item_id"
     t.index ["order_id"], name: "index_reviews_on_order_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "seller_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["seller_id"], name: "index_rooms_on_seller_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "sellers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -164,12 +183,15 @@ ActiveRecord::Schema.define(version: 2021_02_28_182523) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "charges", "users"
   add_foreign_key "items", "sellers"
+  add_foreign_key "messages", "rooms"
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "items"
   add_foreign_key "reviews", "orders"
   add_foreign_key "reviews", "users"
+  add_foreign_key "rooms", "sellers"
+  add_foreign_key "rooms", "users"
   add_foreign_key "shippings", "orders"
   add_foreign_key "stocks", "items"
   add_foreign_key "stores", "sellers"
