@@ -16,6 +16,7 @@ class Seller < ApplicationRecord
   accepts_nested_attributes_for :store, update_only: true
   has_many :items
   has_many :rooms
+  has_many :favorite_sellers
 
   def email_required?
     false
