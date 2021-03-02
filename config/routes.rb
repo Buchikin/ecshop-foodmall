@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :index]
   end
 
+  resources :favoriteitems, only: :index
+
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',

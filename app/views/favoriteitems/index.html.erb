@@ -1,0 +1,31 @@
+<%= render "shared/header1" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar1" %>
+
+  <div class="main-body">
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">いいね商品一覧</span>
+      </div>
+
+
+      <ul class="seller-items">
+        <% @favoriteitems.each do |favoriteitem| %>
+        <% @item = favoriteitem.item %>
+        <li class="seller-item">
+          <%= render "shared/item_small" %>
+        </li>
+        <% end %>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<%= render "shared/footer2" %>
