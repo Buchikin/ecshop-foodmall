@@ -1,0 +1,49 @@
+<%= render "shared/header3" %>
+
+<div class="body-include-sidebar">
+
+  <%= render "shared/sidebar2" %>
+
+  <div class="main-body">
+
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">杵渕有吾 様とのメッセージ</span>
+      </div>
+
+      <ul class=messages>
+
+      <% @messages.each do |message| %>
+        <li class=message>
+          <div class="message-up">
+            <div class="message-name"><b><%= message.whom %> 様</b></div>
+            <div class="message-time"><%= message.created_at.to_s(:datetime_jp) %></div>
+          </div>
+          <div class="message-item-name"><%= message.item_name %></div>
+          <div class="message-text"><%= message.message %></div>
+        </li>
+      <% end %>  
+
+      </ul>
+
+
+      <%= form_with model: @message, url: messagecreate_managements_path(@room.id), class: 'message-form', local: true do |f| %>
+      <div class="message-form-input">
+        <span style="font-size:15pt">新規メッセージ</span>
+        <div class="message-form-row2">
+          <%= f.select :item_name, @item_name, {include_blank: '--'}, class: 'message-item-select' %>について
+        </div>
+        <%= f.text_area :message, class: 'message-form-text', placeholder: 'メッセージを入力' %>
+        <%= f.submit '送信', class: 'message-form-submit' %>
+      </div>
+      <% end %>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<%= render "shared/footer1" %>

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       get 'top'
       get 'items'
       get 'orders'
+      get 'roomindex'
+      get 'messageindex'
+      post 'messagecreate'
     end
   end
 
@@ -24,7 +27,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
   end
 
-
+  resources :rooms, only:[:create, :index] do
+    resources :messages, only: [:create, :index]
+  end
 
   devise_for :users, controllers: {
     sessions:      'users/sessions',
@@ -40,6 +45,7 @@ Rails.application.routes.draw do
 
 
   resources :sellers, only: :show
+
   resources :users do
     resources :charges, only: [:new, :create, :edit, :update]
   end

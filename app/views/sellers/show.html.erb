@@ -25,7 +25,7 @@
               <div class="seller-show-name"><b><%= @seller.store_name %></b></div>
               <div class="seller-show-category"><%= @seller.store.shopcategory.name %></div>
             </div>
-            <%= link_to '販売店に問い合わせ', "#", class: "seller-show-message" %>
+            <%= link_to '販売店に問い合わせ', rooms_path(@seller.id), method: :post,  class: "seller-show-message" %>
           </div>
           <div class="seller-show-text">
             <%= @seller.store.information %>

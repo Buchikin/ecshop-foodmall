@@ -1,0 +1,36 @@
+<%= render "shared/header3" %>
+
+
+<div class="body-include-sidebar">
+
+
+  <%= render "shared/sidebar2" %>
+
+
+  <div class="main-body">
+
+
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">メッセージ一覧</span>
+      </div>
+
+      <ul class="seller-items">
+
+        <% @rooms.each do |room| %>
+        <li class="seller-item-room">
+          <%= room.user.profile.last_name %><%= room.user.profile.first_name %> 様
+          <%= link_to '>>お客様とのメッセージ',messageindex_managements_path(room.id),class:"manage-room-link"%>
+        </li>
+        <% end %>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</div>
+
+<%= render "shared/footer1" %>
