@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_180634) do
+ActiveRecord::Schema.define(version: 2021_03_02_074804) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2021_03_01_180634) do
     t.index ["user_id"], name: "index_charges_on_user_id"
   end
 
+  create_table "favorite_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "item_id", null: false
+    t.boolean "checked"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_favorite_items_on_item_id"
+    t.index ["user_id"], name: "index_favorite_items_on_user_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
@@ -63,7 +73,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_180634) do
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "item_name", null: false
     t.text "message", null: false
-    t.integer "whom", null: false
+    t.string "whom", null: false
     t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -182,6 +192,8 @@ ActiveRecord::Schema.define(version: 2021_03_01_180634) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "charges", "users"
+  add_foreign_key "favorite_items", "items"
+  add_foreign_key "favorite_items", "users"
   add_foreign_key "items", "sellers"
   add_foreign_key "messages", "rooms"
   add_foreign_key "orders", "items"

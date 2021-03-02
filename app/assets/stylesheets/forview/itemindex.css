@@ -73,3 +73,18 @@
 .item-index-price{
   font-size: 22px;
 }
+
+.item-image{
+  position: relative;
+}
+
+.item-middle-heart-image{
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  bottom: 8px;
+  right: 5px;
+  cursor: pointer;
+}
+
+

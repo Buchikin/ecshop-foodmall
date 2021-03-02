@@ -1,0 +1,2 @@
+module FavoriteitemsHelper
+end

@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :reviews
   has_many :rooms
+  has_many :favorite_items
 
 
   def update_without_current_password(params, *options)
