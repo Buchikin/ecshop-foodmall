@@ -30,6 +30,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   has_many :orders
   has_many :reviews
+  has_many :favorite_items
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture

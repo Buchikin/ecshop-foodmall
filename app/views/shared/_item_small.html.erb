@@ -1,11 +1,23 @@
 <div class="item-seller-small">
-  <div class="item--seller-small-image">
+  <div class="item-seller-small-image">
     <%= image_tag @item.image ,class: "item-seller-small-image" %>
+    <div class="hearts">
+      <% if FavoriteItem.exists?(user_id: "#{current_user.id}", item_id: @item.id) && FavoriteItem.find_by(user_id: "#{current_user.id}", item_id: @item.id).checked%>
+      <div class="pink-heart" data-id=<%= @item.id%>>
+        <%= image_tag "ハート.png", class:"item-middle-heart-image-small"%>
+      </div>
+      <% else %>
+      <div class="pink-heart" data-id=<%= @item.id%> style="filter: brightness(50%);">
+        <%= image_tag "ハート.png", class:"item-middle-heart-image-small" %>
+      </div>
+      <% end %>
+    </div>
   </div>
   <div class="item-seller-small-info">
     <div class=item-seller-small-name><%= link_to @item.name, item_path(@item.id),class:"edit-button-link"%></div>
     <div class="item-seller-small-row2">
-      <div class="item-seller-small-seller"><%= link_to @item.seller.store_name, seller_path(@item.seller.id),class:"edit-button-link"%></div>
+      <div class="item-seller-small-seller">
+        <%= link_to @item.seller.store_name, seller_path(@item.seller.id),class:"edit-button-link"%></div>
       <div class="item-seller-small-stock">在庫 <%= @item.stock.count %> セット</div>
     </div>
   </div>

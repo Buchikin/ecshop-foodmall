@@ -41,6 +41,21 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
+
+  def checked
+    if FavoriteItem.exists?(user_id: "#{current_user.id}", item_id: params[:id])
+      favoriteitem = FavoriteItem.find_by(user_id: "#{current_user.id}", item_id: params[:id])
+      if favoriteitem.checked
+        favoriteitem.update(checked: false)
+      else
+        favoriteitem.update(checked: true)
+      end
+    else
+      favoriteitem = FavoriteItem.create(user_id: "#{current_user.id}", item_id: params[:id], checked: true)
+    end
+    favoriteitem = FavoriteItem.find_by(user_id: "#{current_user.id}", item_id: params[:id])
+    render json: { heart: favoriteitem }
+  end
   
 
 

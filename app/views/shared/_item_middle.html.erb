@@ -1,7 +1,19 @@
 <li class="item-list">
-  <div>
+  <div class="item-image">
     <%= link_to image_tag(item.image, class:"item-index-image"), item_path(item.id) %>
+    <div class="hearts">
+      <% if FavoriteItem.exists?(user_id: "#{current_user.id}", item_id: item.id) && FavoriteItem.find_by(user_id: "#{current_user.id}", item_id: item.id).checked%>
+      <div class="pink-heart" data-id=<%= item.id%> >
+        <%= image_tag "ハート.png", class:"item-middle-heart-image"%>
+      </div>
+      <% else %>
+      <div class="pink-heart" data-id=<%= item.id%> style="filter: brightness(50%);">
+        <%= image_tag "ハート.png", class:"item-middle-heart-image" %>
+      </div>
+      <% end %>
+    </div>
   </div>
+
   <div class="item-index-info">
     <b><%= link_to item.name,item_path(item.id), class: "item-index-name" %></b>
     <div class="item-index-seller">
@@ -20,7 +32,7 @@
           <% if Review.exists?(item_id: "#{item.id}") %>
           <%= Review.where(item_id: "#{item.id}").average(:evaluation).round(1) %>
           <% else %>
-            <span style="font-size:8pt">未評価</span>
+          <span style="font-size:8pt">未評価</span>
           <% end %>
         </span> / 5
       </div>

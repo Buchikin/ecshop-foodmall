@@ -15,8 +15,19 @@
       </div>
 
       <div class="item-show-up">
-        <div class="item-show-image">
+        <div class="item-show-images">
           <%= image_tag @item.image ,class: "item-show-image" %>
+          <div class="hearts">
+            <% if FavoriteItem.exists?(user_id: "#{current_user.id}", item_id: @item.id) && FavoriteItem.find_by(user_id: "#{current_user.id}", item_id: @item.id).checked%>
+            <div class="pink-heart" data-id=<%= @item.id%>>
+              <%= image_tag "ハート.png", class:"item-middle-heart-image"%>
+            </div>
+            <% else %>
+            <div class="pink-heart" data-id=<%= @item.id%> style="filter: brightness(50%);">
+              <%= image_tag "ハート.png", class:"item-middle-heart-image" %>
+            </div>
+            <% end %>
+          </div>
         </div>
         <div class="item-show-info">
           <div class="item-show-name"><b><%= @item.name %></b></div>
