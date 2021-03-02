@@ -1,0 +1,4 @@
+class FavoriteSeller < ApplicationRecord
+
+  
+end
