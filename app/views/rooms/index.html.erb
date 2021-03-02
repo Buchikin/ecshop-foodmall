@@ -1,0 +1,43 @@
+<%= render "shared/header1" %>
+
+
+<div class="body-include-sidebar">
+
+
+  <%= render "shared/sidebar1" %>
+
+
+  <div class="main-body">
+
+
+    <div class="main-body-body">
+
+      <div class="main-body-title">
+        <span style="color:#51456A">メッセージ一覧</span>
+      </div>
+
+
+
+
+      <ul class="seller-items">
+
+        <% @rooms.each do |room| %>
+        <li class="seller-item-room">
+          <%= render partial: "shared/seller_small", locals: {room: room }%>
+          <%= link_to '>>> この販売店とのメッセージ', room_messages_path(room.id),class:"room-link"%>
+        </li>
+        <% end %>
+
+      </ul>
+
+
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<%= render "shared/footer1" %>

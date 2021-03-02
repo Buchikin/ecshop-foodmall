@@ -1,18 +1,18 @@
 <div class="item-seller-small">
   <div class="item--seller-small-image">
-    <%= image_tag "seller.jpg" ,class: "item-seller-small-image" %>
+    <%= image_tag room.seller.store.image ,class: "item-seller-small-image" %>
   </div>
   <div class="item-seller-small-info">
     <div class=item-seller-small-name>
-      <%= link_to '松屋南草津店',"#",class:"edit-button-link"%>
-      <span class="seller-show-category">和食</span>
+      <%= link_to "#{room.seller.store_name}",seller_path(room.seller.id),class:"edit-button-link"%>
+      <span class="seller-show-category"><%= room.seller.store.shopcategory.name %></span>
     </div>
     <div class="seller-small-row2">
       <div class="seller-small-show-row2">
-        〒000-0000 滋賀県草津市野路町3丁目0-0
+        〒 <%= room.seller.store.zip_code %> <%= room.seller.store.address %>
       </div>
       <div class="seller-small-show-row2">
-        Tel 090-0000-0000
+        Tel <%= room.seller.store.phone_number %>
       </div>
     </div>
   </div>
