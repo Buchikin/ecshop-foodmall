@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       get 'top'
       get 'items'
       get 'orders'
+      get 'roomindex'
+      get 'messageindex'
+      post 'messagecreate'
     end
   end
 
