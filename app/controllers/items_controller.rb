@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.includes(:stock,:seller)
+    @items = Item.includes(:stock,:seller).order('created_at DESC')
   end
 
   def show
@@ -55,6 +55,15 @@ class ItemsController < ApplicationController
     end
     favoriteitem = FavoriteItem.find_by(user_id: "#{current_user.id}", item_id: params[:id])
     render json: { heart: favoriteitem }
+  end
+
+  def search
+    @search = params[:keyword]
+    if @search != ""
+      @items = Item.where(["name LIKE(?) OR information LIKE(?) OR tag1 LIKE(?) OR tag2 LIKE(?) OR tag3 LIKE(?) OR tag4 LIKE(?) OR tag5 LIKE(?)", "%#{@search}%", "%#{@search}%", "%#{@search}%", "%#{@search}%", "%#{@search}%", "%#{@search}%", "%#{@search}%"]).order('created_at DESC')
+    else
+      @items = Item.all.order('created_at DESC')
+    end
   end
   
 
