@@ -22,9 +22,13 @@ function calc_order (){
 
   quantity.addEventListener("keyup", () => {
     if (Number.isInteger(Number(quantity.value))){
+      orderprice.removeAttribute("style", "font-size: 9pt;")
+      orderprice.setAttribute("style", "font-size: 20pt;")
       calc();
     } else {
-      orderprice.innerHTML = "半角整数で入力";
+      orderprice.innerHTML = "半角整数で入力してください";
+      orderprice.removeAttribute("style", "font-size: 20pt;")
+      orderprice.setAttribute("style", "font-size: 9pt;")
     }
   });
 }
