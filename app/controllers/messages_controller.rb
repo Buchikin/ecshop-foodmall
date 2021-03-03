@@ -1,15 +1,16 @@
 class MessagesController < ApplicationController
+  before_action :set_room, only: [:index, :create]
+  before_action :authenticate_user!, only: [:index, :create]
+  before_action :check_user, only: [:index, :create]
+
 
   def index
-    @room = Room.find(params[:room_id])
     @messages = @room.messages
     @message = Message.new
     set_item_name
-
   end
 
   def create
-    @room = Room.find(params[:room_id])
     @message = Message.new(message_params)
     if @message.valid?
       @message.save
@@ -34,6 +35,16 @@ class MessagesController < ApplicationController
       @item_name.push(item.name)
     end
     @item_name.push("その他")
+  end
+
+  def set_room
+    @room = Room.find(params[:room_id])
+  end
+
+  def check_user
+    if @room.user_id != current_user.id
+      redirect_to rooms_path
+    end
   end
   
 end

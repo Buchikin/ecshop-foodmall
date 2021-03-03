@@ -1,13 +1,14 @@
 class ReviewsController < ApplicationController
+  before_action :set_order, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_user, only: [:new, :create, :edit, :update]
 
   def new
-    @order = Order.find(params[:order_id])
     @review = Review.new
     @item = @order.item
   end
 
   def create
-    @order = Order.find(params[:order_id])
     @item = @order.item
     @review = Review.new(review_params)
     if @review.valid?
@@ -19,13 +20,11 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @order = Order.find(params[:order_id])
     @review = Review.find(params[:id])
     @item = @order.item
   end
 
   def update
-    @order = Order.find(params[:order_id])
     @item = @order.item
     @review = Review.find(params[:id])
     if @review.update(review_params)
@@ -45,5 +44,15 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:evaluation, :text).merge(user_id: current_user.id, item_id: @order.item.id, order_id: @order.id)
+  end
+
+  def set_order
+    @order = Order.find(params[:order_id])
+  end
+
+  def check_user
+    if @order.user_id != current_user.id
+      redirect_to orders_path
+    end
   end
 end

@@ -1,5 +1,7 @@
 class ChargesController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+
   def new
     @charge = Charge.new
   end

@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  before_action :authenticate_seller!, only: [:new, :create, :edit, :update]
+  
   def index
     @items = Item.includes(:stock,:seller).order('created_at DESC')
   end

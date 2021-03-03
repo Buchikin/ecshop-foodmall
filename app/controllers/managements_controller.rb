@@ -3,16 +3,16 @@ class ManagementsController < ApplicationController
 
 
   def top
-    @items = current_seller.items
+    @items = current_seller.items.order('created_at DESC')
   end
 
   def items
-    @items = current_seller.items
+    @items = current_seller.items.order('created_at DESC')
   end
 
   def orders
     items = current_seller.items
-    @orders = Order.where(item_id: items.ids)
+    @orders = Order.where(item_id: items.ids).order('created_at DESC')
   end
 
   def roomindex
