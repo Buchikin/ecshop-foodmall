@@ -23,7 +23,8 @@
 
         <% @rooms.each do |room| %>
         <li class="seller-item-room">
-          <%= render partial: "shared/seller_small", locals: {room: room }%>
+        <% @seller = room.seller %>
+          <%= render partial: "shared/seller_small"%>
           <%= link_to '>>> この販売店とのメッセージ', room_messages_path(room.id),class:"room-link"%>
         </li>
         <% end %>

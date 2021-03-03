@@ -1,18 +1,29 @@
 <div class="item-seller-small">
-  <div class="item--seller-small-image">
-    <%= image_tag room.seller.store.image ,class: "item-seller-small-image" %>
+  <div class="item-seller-small-image">
+    <%= image_tag @seller.store.image ,class: "item-seller-small-image" %>
+    <div class="hearts">
+      <% if user_signed_in? && FavoriteSeller.exists?(user_id: "#{current_user.id}", seller_id: @seller.id) && FavoriteSeller.find_by(user_id: "#{current_user.id}", seller_id: @seller.id).checked%>
+      <div class="seller-pink-heart" data-id=<%= @seller.id%>>
+        <%= image_tag "ハート.png", class:"item-middle-heart-image-small"%>
+      </div>
+      <% else %>
+      <div class="seller-pink-heart" data-id=<%= @seller.id%> style="filter: brightness(50%);">
+        <%= image_tag "ハート.png", class:"item-middle-heart-image-small" %>
+      </div>
+      <% end %>
+    </div>
   </div>
   <div class="item-seller-small-info">
     <div class=item-seller-small-name>
-      <%= link_to "#{room.seller.store_name}",seller_path(room.seller.id),class:"edit-button-link"%>
-      <span class="seller-show-category"><%= room.seller.store.shopcategory.name %></span>
+      <%= link_to "#{@seller.store_name}",seller_path(@seller.id),class:"edit-button-link"%>
+      <span class="seller-show-category"><%= @seller.store.shopcategory.name %></span>
     </div>
     <div class="seller-small-row2">
       <div class="seller-small-show-row2">
-        〒 <%= room.seller.store.zip_code %> <%= room.seller.store.address %>
+        〒 <%= @seller.store.zip_code %> <%= @seller.store.address %>
       </div>
       <div class="seller-small-show-row2">
-        Tel <%= room.seller.store.phone_number %>
+        Tel <%= @seller.store.phone_number %>
       </div>
     </div>
   </div>

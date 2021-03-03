@@ -16,8 +16,19 @@
 
 
       <div class="seller-show-up">
-        <div class="seller-show-image">
+        <div class="seller-show-images">
           <%= image_tag @seller.store.image ,class: "seller-show-image" %>
+          <div class="hearts">
+            <% if user_signed_in? && FavoriteSeller.exists?(user_id: "#{current_user.id}", seller_id: @seller.id) && FavoriteSeller.find_by(user_id: "#{current_user.id}", seller_id: @seller.id).checked%>
+            <div class="seller-pink-heart" data-id=<%= @seller.id%>>
+              <%= image_tag "ハート.png", class:"item-middle-heart-image"%>
+            </div>
+            <% else %>
+            <div class="seller-pink-heart" data-id=<%= @seller.id%> style="filter: brightness(50%);">
+              <%= image_tag "ハート.png", class:"item-middle-heart-image" %>
+            </div>
+            <% end %>
+          </div>
         </div>
         <div class="seller-show-info">
           <div class="seller-show-row1">

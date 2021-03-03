@@ -7,10 +7,19 @@
   margin-bottom: 20px;
 }
 
+.seller-show-images{
+  width: 30vw;
+
+  margin-right: 10px;
+  max-width: 440px;
+  position: relative;
+}
+
 .seller-show-image{
   width: 30vw;
   margin-right: 10px;
   max-width: 440px;
+  position: relative;
 }
 
 .seller-show-info{
