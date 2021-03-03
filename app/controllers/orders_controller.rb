@@ -6,7 +6,11 @@ class OrdersController < ApplicationController
 
   def new
     @item = Item.find(params[:format])
-    @charge = Charge.find(current_user.charge.id)
+    if Charge.exists?(user_id: "#{current_user.id}")
+      @charge = Charge.find(current_user.charge.id)
+    else
+      @charge = Charge.new(pay: 0)
+    end
     @new_order = NewOrder.new
   end
 
