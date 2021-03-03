@@ -23,6 +23,7 @@
 }
 
 .seller-show-info{
+  width: calc(100% - 30vw);
   margin:0 10px;
 }
 
