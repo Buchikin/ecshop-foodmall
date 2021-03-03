@@ -21,9 +21,13 @@ Rails.application.routes.draw do
 
   resources :items do
     resources :stocks, only: [:edit, :update]
+    collection do
+      get 'search'
+    end
   end
 
   get 'item/:id', to: 'items#checked'
+  get 'seller/:id', to: 'sellers#checked'
 
   resources :orders, only: [:new, :create, :index] do
     resources :reviews, only: [:new, :create, :edit, :update, :destroy]
@@ -34,6 +38,7 @@ Rails.application.routes.draw do
   end
 
   resources :favoriteitems, only: :index
+  resources :favoritesellers, only: :index
 
   devise_for :users, controllers: {
     sessions:      'users/sessions',
