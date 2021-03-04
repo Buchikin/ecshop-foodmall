@@ -5,7 +5,7 @@
 }
 
 .side-user-info{
-  height: 140px;
+  min-height: 140px;
   width: 230px;
   margin: 10px 10px 0 10px;
   padding: 5px 0 13px 0;

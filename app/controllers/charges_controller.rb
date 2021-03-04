@@ -7,7 +7,7 @@ class ChargesController < ApplicationController
   end
   
   def create
-    if charge_params[:pay].to_i != 0
+    if charge_params[:pay].to_i >= 50 
       @charge = Charge.new(charge_params)
       if @charge.valid?
         pay_new_charege
@@ -30,7 +30,7 @@ class ChargesController < ApplicationController
     @charge = Charge.find(params[:id])
     now_charge = @charge.pay
     new_charge = params[:charge][:pay].to_i
-    if new_charge != 0 
+    if new_charge >= 50 
       params[:charge][:pay] = now_charge + new_charge
       if @charge.update(charge_params) &&  pay_edit_charge(new_charge)
         redirect_to items_path

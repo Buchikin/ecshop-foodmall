@@ -27,7 +27,7 @@
 
       <div class=stock-edit>
         <div class="now-stock"> 現在の在庫数<span style="font-size:20pt;margin:0 5pt"><%= @item.stock.count %></span>セット</div>
-        <div class="new-stock"> 編集後の在庫数
+        <div class="new-stock"> 編集後の在庫数(0~10000)
           <%= f.text_field :count, value: "", class:"input-stock-edit"%>セット
         </div>
       </div>

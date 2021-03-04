@@ -17,7 +17,11 @@ class ItemsController < ApplicationController
 
   def create
     @new_item = NewItem.new(item_params)
-    @new_item.allergies = @new_item.allergies.join("・")
+    if @new_item.allergies != nil 
+      @new_item.allergies = @new_item.allergies.join("・")
+    else
+      @new_item.allergies = "" 
+    end
     if @new_item.valid?
       @new_item.save
       redirect_to top_managements_path

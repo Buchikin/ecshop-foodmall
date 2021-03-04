@@ -9,8 +9,8 @@ class NewItem
     validates :image
     
     with_options numericality: { with: /\A[0-9]+\z/, message: "must be Half-width numbers"} do
-      validates :price
-      validates :count
+      validates :price , numericality: { :greater_than_or_equal_to => 300 , :less_than_or_equal_to => 9999999 , message:"must be 300~9999999" }
+      validates :count , numericality: { :greater_than_or_equal_to => 0 , :less_than_or_equal_to => 10000 , message:"must be 0~10000" }
     end
 
     with_options numericality: { other_than: 0 , message: "must be selected"}  do

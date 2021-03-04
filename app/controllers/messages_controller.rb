@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
       @message.save
       redirect_to room_messages_path(@room.id)
     else
-      @messages = Message.where(params[:room_id])
+      @messages = Message.where(room_id: params[:room_id])
       set_item_name
       render :index
     end

@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
   def create
     @item = Item.find(params[:format])
     @stock = Stock.find(@item.stock.id)
-    @charge = Charge.find(current_user.charge.id)
+    check_charge_exist
     purchase_price = params[:new_order][:quantity].to_i * @item.price
     @new_order = NewOrder.new(order_params(purchase_price))
     new_count = @stock.count - params[:new_order][:quantity].to_i
@@ -40,6 +40,14 @@ class OrdersController < ApplicationController
 
   def order_params(purchase_price)
     params.require(:new_order).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :zip_code , :address, :quantity).merge(item_id: @item.id, user_id: current_user.id, purchase_price: purchase_price)
+  end
+
+  def check_charge_exist
+    if Charge.exists?(user_id: current_user.id)
+      @charge = Charge.find(current_user.charge.id)
+    else
+      @charge = Charge.create(pay: 0,user_id: current_user.id, token: "aaa")
+    end
   end
 
 end

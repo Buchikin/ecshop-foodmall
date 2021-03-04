@@ -64,7 +64,7 @@ class Sellers::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [ :store_name, store_attributes: [:id, :shopcategory_id, :image, :zip_code, :address, :phone_number, :url, :information, :responsible, :responsible_kana, :responsible_phone ] ])
+    devise_parameter_sanitizer.permit(:account_update, keys: [ :store_name, store_attributes: [ :shopcategory_id, :image, :zip_code, :address, :phone_number, :url, :information, :responsible, :responsible_kana, :responsible_phone ] ])
   end
 
   # The path used after sign up.
