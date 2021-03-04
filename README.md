@@ -1,17 +1,13 @@
-# README
+# アプリ名
+FOOD MALL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 概要
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
+# 制作背景(意図)
+# DEMO
+# 実装予定の内容
+# DB設計
 
 ## users テーブル
 
@@ -29,7 +25,7 @@ Things you may want to cover:
 - has_many :favorite_items
 - has_many :favorite_ sellers
 - has_many :reviews
-- has_many :chats
+- has_many :rooms
 
 <br>
 <br>
@@ -68,7 +64,7 @@ Things you may want to cover:
 - has_one :store
 - has_many :favorite_sellers
 - has_many :items
-- has_many :chats
+- has_many :rooms
 
 <br>
 <br>
@@ -159,6 +155,25 @@ Things you may want to cover:
 <br>
 <br>
 
+## shipping_orders テーブル
+
+| Column | Type | Options |
+| - | - | - |
+| last_name | string | null: false |
+| first_name | string | null: false |
+| last_name_kana | string | null: false |
+| first_name_kana | string | null: false |
+| zip_code | string | null: false |
+| address | string | null: false |
+| order | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :order
+
+<br>
+<br>
+
 ## favorite_sellers テーブル
 
 | Column | Type | Options |
@@ -168,8 +183,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :seller
 - belongs_to :user
+- belongs_to :seller
 
 <br>
 <br>
@@ -183,8 +198,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :item
 - belongs_to :user
+- belongs_to :item
 
 <br>
 <br>
@@ -228,42 +243,23 @@ Things you may want to cover:
 
 | Column | Type | Options |
 | - | - | - |
-| item_name | text | - |
+| item_name | string | - |
 | message | text | null: false |
-| chat | references | null: false, foreign_key: true |
+| whom | integer | null: false |
+| room | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :chat
+- belongs_to :room
 
 <br>
 <br>
-
-## shipping_orders テーブル
-
-| Column | Type | Options |
-| - | - | - |
-| last_name | string | null: false |
-| first_name | string | null: false |
-| last_name_kana | string | null: false |
-| first_name_kana | string | null: false |
-| zip_code | string | null: false |
-| address | string | null: false |
-| order | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :order
-
-<br>
-<br>
-
 
 ## charges テーブル
 
 | Column | Type | Options |
 | - | - | - |
-| charge_count | integer | null: false |
+| pay | integer | null: false |
 | user | references | null: false, foreign_key: true |
 
 ### Association
