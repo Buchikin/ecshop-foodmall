@@ -1,17 +1,107 @@
-# README
+# アプリ名
+FOOD MALL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![top](readme_image/トップページ.png)
 
-Things you may want to cover:
+<br>
 
-* Ruby version
+# 概要
+飲食物を販売しユーザーが購入する事のできる、モール型ECショップのアプリケーション
 
-* System dependencies
+<br>
 
-* Configuration
+# 本番環境(未デプロイ)
+- URL  
+   http
 
-* Database creation
+- テスト用アカウント(購入ユーザー)  
+   email :   
+   password :   
+
+- テスト用アカウント(販売者)  
+   店舗ID :   
+   password :  
+
+- テスト用クレジットカード  
+   カード番号 : 4242424242424242  
+   有効期限 :  10/24  
+   セキュリティーコード :  123  
+  <br>
+
+# 制作背景
+   コロナ禍による在宅ワークの増加や時短営業が原因で外食を行うことが厳しくなった。普段から本格的なレストランの料理を楽しんでいる食通の方と、客足や売り上げが下がったレストランとをつなぐアプリケーションを製作した。
+
+<br>
+
+# 機能一覧
+- ユーザー管理機能
+- 販売者管理機能
+- 販売者詳細表示機能
+- 販売者の管理機能
+- 商品出品機能
+- 商品表示機能(一覧・詳細)
+- 在庫数管理機能
+- 購入機能
+- 購入履歴表示機能(ユーザー側)
+- 購入履歴表示機能(販売者側)
+- お気に入り登録機能(商品・販売者)
+- レビュー投稿機能
+- 店舗とのメッセージ機能
+- 商品検索機能
+- 残高チャージ機能
+
+<br>
+
+# 追加実装予定の内容
+- テストコード
+- カゴ機能
+- 通知表示機能
+- ポイント機能
+
+<br>
+
+# 現状の課題(改良中)
+- フォームなどのアクション完了が分かりにくい
+- 販売者側からメッセージを始められない
+- 販売者側がレビューされたものが見ることができない
+
+<br>
+
+# 工夫したポイント
+- DB設計の時点でテーブルを細かく分離し、可読性が高く必要以上の情報が処理されないようにした
+- 部分テンプレートを多く使い、可読性の高いフロント実装を行った
+- 一つのクリックでも条件によって動くアクションを異なるものに設定することで、必要のない時に無駄なデータが生成されるのを防いだ。
+
+<br>
+
+# 使用技術(開発環境)
+## フロントエンド
+- HTML
+- CSS
+- Javascript
+
+## バックエンド
+- Ruby2.6.5
+- Ruby on Rails 6.0.3.5
+
+## データベース
+- mysql  Ver 14.14 
+
+## テスト(予定)
+- RSpec(SystemSpec)
+- FactoryBot
+- Faker
+
+## 本番環境(予定)
+- Heroku
+- AWS S3
+
+## ソース管理
+- GitHub, GitHubDesktop
+
+<br>
+
+# DB設計
 
 ## users テーブル
 
@@ -29,7 +119,7 @@ Things you may want to cover:
 - has_many :favorite_items
 - has_many :favorite_ sellers
 - has_many :reviews
-- has_many :chats
+- has_many :rooms
 
 <br>
 <br>
@@ -68,7 +158,7 @@ Things you may want to cover:
 - has_one :store
 - has_many :favorite_sellers
 - has_many :items
-- has_many :chats
+- has_many :rooms
 
 <br>
 <br>
@@ -159,6 +249,25 @@ Things you may want to cover:
 <br>
 <br>
 
+## shipping_orders テーブル
+
+| Column | Type | Options |
+| - | - | - |
+| last_name | string | null: false |
+| first_name | string | null: false |
+| last_name_kana | string | null: false |
+| first_name_kana | string | null: false |
+| zip_code | string | null: false |
+| address | string | null: false |
+| order | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :order
+
+<br>
+<br>
+
 ## favorite_sellers テーブル
 
 | Column | Type | Options |
@@ -168,8 +277,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :seller
 - belongs_to :user
+- belongs_to :seller
 
 <br>
 <br>
@@ -183,8 +292,8 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :item
 - belongs_to :user
+- belongs_to :item
 
 <br>
 <br>
@@ -228,42 +337,23 @@ Things you may want to cover:
 
 | Column | Type | Options |
 | - | - | - |
-| item_name | text | - |
+| item_name | string | - |
 | message | text | null: false |
-| chat | references | null: false, foreign_key: true |
+| whom | integer | null: false |
+| room | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :chat
+- belongs_to :room
 
 <br>
 <br>
-
-## shipping_orders テーブル
-
-| Column | Type | Options |
-| - | - | - |
-| last_name | string | null: false |
-| first_name | string | null: false |
-| last_name_kana | string | null: false |
-| first_name_kana | string | null: false |
-| zip_code | string | null: false |
-| address | string | null: false |
-| order | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :order
-
-<br>
-<br>
-
 
 ## charges テーブル
 
 | Column | Type | Options |
 | - | - | - |
-| charge_count | integer | null: false |
+| pay | integer | null: false |
 | user | references | null: false, foreign_key: true |
 
 ### Association
@@ -271,14 +361,7 @@ Things you may want to cover:
 - belongs_to :user
 
 <br>
-<br>
 
-* Database initialization
+# ER図
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![er](readme_image/ER.png)
