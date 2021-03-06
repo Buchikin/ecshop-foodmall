@@ -23,3 +23,13 @@
   margin-top: 10px;
   padding-bottom: 10px;
 }
+
+.alert{
+  color: red;
+  font-size: 20px;
+}
+
+.notice{
+  font-size: 20px;
+  margin: 20px 0 0 30px;
+}
