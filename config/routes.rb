@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get 'roomindex'
       get 'messageindex'
       post 'messagecreate'
+      post 'roomcreate'
     end
   end
 
