@@ -39,6 +39,16 @@ class ManagementsController < ApplicationController
     end
   end
 
+  def roomcreate
+    if Room.exists?(seller_id: "#{current_seller.id}", user_id: params[:format])
+      @room = Room.find_by(seller_id: "#{current_seller.id}", user_id: params[:format])
+      redirect_to messageindex_managements_path(@room.id)
+    else
+      @room = Room.create(seller_id: current_seller.id, user_id: params[:format])
+      redirect_to messageindex_managements_path(@room.id)
+    end
+  end
+
   private
 
   def message_params
