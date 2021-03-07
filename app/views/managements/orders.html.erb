@@ -31,7 +31,7 @@
               <div class="order-user-info-title">お届け先お客様情報</div>
               <div class="order-user-info">
                 <div class="order-user-name"><%= order.shipping.last_name %><%= order.shipping.first_name %> (<%= order.shipping.last_name_kana %><%= order.shipping.first_name_kana %>) 様</div>
-                <div class="order-user-zip">〒 <%= order.shipping.zip_code %></div>
+                <div class="order-user-zip">〒 <%= order.shipping.zip_code %><%= link_to 'このお客様にメッセージを送る', roomcreate_managements_path(order.user.id), method: :post,class:"new-message-link"%></div>
                 <div class="order-user-address"><%= order.shipping.address %></div>
               </div>
             </div>
