@@ -5,6 +5,8 @@
   <%= render "shared/sidebar2" %>
 
   <div class="main-body">
+
+    <div class="notice"><%= notice %></div>
     <div class="main-body-body">
 
       <div class="main-body-title">
@@ -19,7 +21,8 @@
         <li class="seller-item">
           <%= render partial: "shared/item_seller_small"%>
           <ul class="edit-buttons">
-            <li class="edit-button"><%= link_to '在庫数編集',edit_item_stock_path(item.id,item.stock.id),class:"edit-button-link"%></li>
+            <li class="edit-button">
+              <%= link_to '在庫数編集',edit_item_stock_path(item.id,item.stock.id),class:"edit-button-link"%></li>
             <li class="edit-button"><%= link_to '商品編集', edit_item_path(item.id) ,class:"edit-button-link"%></li>
             <%# <li class="edit-button"><%= link_to '商品削除', item_path(item.id), class:"edit-button-link", method: :delete </li>  %>
           </ul>
