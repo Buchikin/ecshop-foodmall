@@ -12,7 +12,7 @@ FOOD MALL
 
 # 本番環境(未デプロイ)
 - URL  
-   http
+   https://food-mall-ecshop.herokuapp.com/
 
 - テスト用アカウント(購入ユーザー)  
    email :   
