@@ -26,11 +26,13 @@ class OrdersController < ApplicationController
     if params[:new_order][:quantity].to_i != 0 && @item.stock.count >= params[:new_order][:quantity].to_i &&  current_user.charge.pay >= purchase_price
       if @new_order.valid? && @stock.update(count: new_count) && @charge.update(pay: new_pay, token: "aaa")
         @new_order.save
-        redirect_to items_path
+        redirect_to items_path, notice: "購入が完了しました"
       else
+        flash.now[:alert] = "お客様情報を確認してください"
         render :new
       end
     else
+      flash.now[:alert] = "購入個数・在庫数・チャージ残高を確認してください"
       render :new
     end
     

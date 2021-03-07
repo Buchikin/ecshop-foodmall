@@ -12,11 +12,13 @@ class ChargesController < ApplicationController
       if @charge.valid?
         pay_new_charege
         @charge.save
-        redirect_to items_path
+        redirect_to items_path, notice: "チャージが完了しました"
       else
+        flash.now[:alert] = "クレジットカード情報を確認してください"
         render action: :new
       end
     else
+      flash.now[:alert] = "¥50以上のチャージをしてください"
       @charge = Charge.new
       render :new
     end
@@ -33,12 +35,13 @@ class ChargesController < ApplicationController
     if new_charge >= 50 
       params[:charge][:pay] = now_charge + new_charge
       if @charge.update(charge_params) &&  pay_edit_charge(new_charge)
-        redirect_to items_path
+        redirect_to items_path, notice: "チャージが完了しました"
       else
+        flash.now[:alert] = "クレジットカード情報を確認してください"
         render :edit
       end
     else
-      @errors = "１以上の半角数字で入力してください"
+      flash.now[:alert] = "¥50以上のチャージをしてください"
       render :edit
     end
   end

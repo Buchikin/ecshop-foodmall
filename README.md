@@ -364,4 +364,4 @@ FOOD MALL
 
 # ER図
 
-![er](readme_image/ER.png)
+![er](readme_image/er図.png)

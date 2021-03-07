@@ -31,11 +31,11 @@ class ManagementsController < ApplicationController
     @message = Message.new(message_params)
     if @message.valid?
       @message.save
-      redirect_to  messageindex_managements_path(@room.id)
+      redirect_to  messageindex_managements_path(@room.id), notice: "メッセージを送信しました"
     else
       @messages = Message.where(params[:format])
       set_item_name
-      redirect_to messageindex_managements_path(@room.id)
+      redirect_to messageindex_managements_path(@room.id), notice: "メッセージ送信に失敗しました。内容を確認してください"
     end
   end
 

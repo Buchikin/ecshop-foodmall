@@ -14,10 +14,11 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.valid?
       @message.save
-      redirect_to room_messages_path(@room.id)
+      redirect_to room_messages_path(@room.id), notice: "メッセージを送信しました"
     else
       @messages = Message.where(room_id: params[:room_id])
       set_item_name
+      flash.now[:alert] = "送信に失敗しました"
       render :index
     end
   end

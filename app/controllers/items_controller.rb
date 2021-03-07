@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     end
     if @new_item.valid?
       @new_item.save
-      redirect_to top_managements_path
+      redirect_to top_managements_path, notice: "新規出品が完了しました"
     else
       render :new
     end
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
       params[:item][:allergies] = ""
     end
     if @item.update(edit_item_params)
-      redirect_to items_managements_path
+      redirect_to items_managements_path, notice: "編集が完了しました"
     else
       render :edit
     end
