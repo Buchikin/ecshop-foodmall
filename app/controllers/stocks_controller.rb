@@ -9,7 +9,7 @@ class StocksController < ApplicationController
 
   def update
     if @stock.update(stock_params)
-      redirect_to items_managements_path
+      redirect_to items_managements_path, notice: "在庫修正が完了しました"
     else
       @item = Item.find(params[:item_id])
       render :edit
