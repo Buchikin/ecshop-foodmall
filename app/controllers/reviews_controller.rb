@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     if @review.valid?
       @review.save
-      redirect_to orders_path
+      redirect_to orders_path, notice: "評価・レビューが完了しました"
     else
       render :new
     end
@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
     @item = @order.item
     @review = Review.find(params[:id])
     if @review.update(review_params)
-      redirect_to orders_path
+      redirect_to orders_path, notice: "編集が完了しました"
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
   def destroy
     review = Review.find(params[:id])
     review.destroy
-    redirect_to orders_path
+    redirect_to orders_path, notice: "評価・レビューを削除しました"
   end
 
   private
