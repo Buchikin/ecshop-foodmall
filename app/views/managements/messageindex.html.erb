@@ -6,15 +6,18 @@
 
   <div class="main-body">
 
+    <div class="notice"><%= notice %></div>
+
     <div class="main-body-body">
 
       <div class="main-body-title">
-        <span style="color:#51456A"><%= @room.user.profile.last_name %><%= @room.user.profile.first_name %> 様とのメッセージ</span>
+        <span style="color:#51456A"><%= @room.user.profile.last_name %><%= @room.user.profile.first_name %>
+          様とのメッセージ</span>
       </div>
 
       <ul class=messages>
 
-      <% @messages.each do |message| %>
+        <% @messages.each do |message| %>
         <li class=message>
           <div class="message-up">
             <div class="message-name"><b><%= message.whom %> 様</b></div>
@@ -23,7 +26,7 @@
           <div class="message-item-name"><%= message.item_name %></div>
           <div class="message-text"><%= message.message %></div>
         </li>
-      <% end %>  
+        <% end %>
 
       </ul>
 
