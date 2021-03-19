@@ -92,7 +92,7 @@ FOOD MALL
 - FactoryBot
 - Faker
 
-## 本番環境(予定)
+## 本番環境
 - Heroku
 - AWS S3
 
@@ -337,9 +337,9 @@ FOOD MALL
 
 | Column | Type | Options |
 | - | - | - |
-| item_name | string | - |
+| item_name | string | null: false |
 | message | text | null: false |
-| whom | integer | null: false |
+| whom | string | null: false |
 | room | references | null: false, foreign_key: true |
 
 ### Association
