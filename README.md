@@ -15,12 +15,12 @@ FOOD MALL
    https://food-mall-ecshop.herokuapp.com/
 
 - テスト用アカウント(購入ユーザー)  
-   email :   
-   password :   
+   email :  user123  
+   password :  user123
 
 - テスト用アカウント(販売者)  
-   店舗ID :   
-   password :  
+   店舗ID :  test123  
+   password :  test123
 
 - テスト用クレジットカード  
    カード番号 : 4242424242424242  
