@@ -10,7 +10,7 @@ FOOD MALL
 
 <br>
 
-# 本番環境(未デプロイ)
+# 本番環境
 - URL  
    https://food-mall-ecshop.herokuapp.com/
 
